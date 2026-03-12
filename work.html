@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Work — Vertical Studios ATL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --sky:#D6EEFF;--sky2:#BEE0FA;--sky3:#9DCBEE;
+      --ink:#0A1628;--ink2:#1E3A5F;
+      --cobalt:#1B4FD8;--gold:#F5C842;--coral:#FF4D3B;--white:#FFFFFF;
+      --display:'Anton',Impact,sans-serif;
+      --serif:'Playfair Display',Georgia,serif;
+      --body:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
+    nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
+    .nav-logo{text-decoration:none;position:relative;line-height:1;}
+    .nav-logo .lv{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--cobalt);display:block;line-height:.9;}
+    .nav-logo .ls{font-family:var(--body);font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+    .nav-links{display:flex;gap:36px;list-style:none;position:relative;}
+    .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cobalt);}
+
+    .page-hero{padding:190px 56px 80px;position:relative;overflow:hidden;}
+    .page-hero::before{content:'WORK';position:absolute;right:-30px;top:90px;font-family:var(--display);font-size:clamp(8rem,18vw,22rem);letter-spacing:.04em;color:rgba(27,79,216,.05);pointer-events:none;white-space:nowrap;}
+    .page-eyebrow{font-size:.64rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--cobalt);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+    .page-eyebrow::before{content:'';width:28px;height:2px;background:var(--cobalt);}
+    .page-hero-title{font-family:var(--display);font-size:clamp(4rem,10vw,12rem);line-height:.88;letter-spacing:.03em;color:var(--ink);}
+    .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
+    .page-hero-sub{font-size:.9rem;line-height:1.75;color:var(--ink2);max-width:500px;margin-top:20px;}
+
+    /* FILTER */
+    .filter-bar{padding:0 56px 56px;display:flex;gap:4px;flex-wrap:wrap;}
+    .filter-btn{padding:10px 22px;border:1.5px solid var(--sky3);background:transparent;color:var(--ink2);font-family:var(--body);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:none;transition:background .2s,color .2s,border-color .2s;}
+    .filter-btn:hover{border-color:var(--cobalt);color:var(--cobalt);}
+    .filter-btn.active{background:var(--cobalt);border-color:var(--cobalt);color:var(--white);}
+
+    /* VERTICAL CARD GRID — portrait format to mirror phone screens */
+    .series-grid{padding:0 56px 110px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+    .series-card{position:relative;overflow:hidden;background:var(--ink);border-radius:2px;aspect-ratio:9/14;cursor:none;transition:transform .4s;}
+    .series-card:hover{transform:translateY(-10px);}
+    .sc-img{width:100%;height:100%;background:linear-gradient(160deg,#18284a,#0a1525);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
+    .series-card:hover .sc-img{transform:scale(1.04);}
+    .sc-img span{font-family:var(--display);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.1);text-align:center;padding:14px;}
+    .sc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.97) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px 18px 18px;opacity:0;transition:opacity .3s;}
+    .series-card:hover .sc-overlay{opacity:1;}
+    /* always-visible bottom label */
+    .sc-label{position:absolute;bottom:0;left:0;right:0;padding:20px 18px 16px;background:linear-gradient(to top,rgba(10,22,40,.92) 0%,transparent 100%);}
+    .sc-tag{font-size:.56rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+    .sc-title{font-family:var(--display);font-size:1.2rem;letter-spacing:.04em;color:var(--white);line-height:1.05;}
+    .sc-ep{font-size:.64rem;color:rgba(214,238,255,.4);margin-top:3px;}
+    .sc-year{font-size:.62rem;color:rgba(214,238,255,.3);margin-top:2px;}
+
+    /* FEATURED */
+    .featured{margin:0 56px 100px;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;}
+    .f-visual{aspect-ratio:9/10;overflow:hidden;}
+    .f-ph{width:100%;height:100%;background:linear-gradient(160deg,#1a2a48,#091525);display:flex;align-items:center;justify-content:center;}
+    .f-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.18em;color:rgba(255,255,255,.1);text-align:center;}
+    .f-info{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;}
+    .f-eyebrow{font-size:.6rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+    .f-title{font-family:var(--display);font-size:clamp(2.5rem,4vw,4.5rem);letter-spacing:.04em;color:var(--white);line-height:.95;margin-bottom:20px;}
+    .f-body{font-size:.86rem;line-height:1.8;color:rgba(214,238,255,.55);margin-bottom:28px;}
+    .f-stats{display:flex;gap:36px;margin-bottom:36px;}
+    .f-stat-num{font-family:var(--display);font-size:2.2rem;color:var(--gold);}
+    .f-stat-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(214,238,255,.38);margin-top:2px;}
+    .btn-primary{display:inline-block;padding:13px 32px;background:var(--cobalt);color:var(--white);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;}
+    .btn-primary:hover{background:var(--ink2);transform:translateY(-2px);}
+
+    footer{background:var(--ink);padding:70px 56px 44px;}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
+    .footer-logo .flv{font-family:var(--display);font-size:2rem;color:var(--gold);display:block;}
+    .footer-logo .fln{font-family:var(--display);font-size:1.1rem;letter-spacing:.1em;color:var(--white);}
+    .footer-tagline{font-size:.7rem;color:rgba(214,238,255,.32);letter-spacing:.05em;margin-top:6px;}
+    .footer-links{display:flex;gap:56px;}
+    .footer-col h4{font-size:.58rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+    .footer-col a{font-size:.8rem;color:rgba(214,238,255,.42);text-decoration:none;transition:color .2s;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-copy{font-size:.67rem;color:rgba(214,238,255,.2);letter-spacing:.04em;}
+    .footer-socials{display:flex;gap:20px;}
+    .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
+    .footer-socials a:hover{color:var(--gold);}
+
+    @media(max-width:960px){
+      nav{padding:22px 28px;}
+      .page-hero,.featured{padding:80px 28px;}
+      .featured{margin:0 28px 80px;grid-template-columns:1fr;}
+      .filter-bar{padding:0 28px 40px;}
+      .series-grid{padding:0 28px 80px;grid-template-columns:repeat(2,1fr);}
+      .footer-top{flex-direction:column;gap:36px;}
+      footer{padding:60px 28px 36px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="lv">V/</span>
+      <span class="ls">Vertical Studios ATL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">Our Portfolio</p>
+    <h1 class="page-hero-title">VERTICAL<br><em>Series</em></h1>
+    <p class="page-hero-sub">50+ vertical micro-drama series produced for streaming platforms. Every project shot natively in 9:16 — built for the feed from the first frame.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="setFilter(this,'all')">All Series</button>
+    <button class="filter-btn" onclick="setFilter(this,'drama')">Drama</button>
+    <button class="filter-btn" onclick="setFilter(this,'thriller')">Thriller</button>
+    <button class="filter-btn" onclick="setFilter(this,'romance')">Romance</button>
+    <button class="filter-btn" onclick="setFilter(this,'comedy')">Comedy</button>
+  </div>
+
+  <div class="series-grid">
+    <div class="series-card" data-cat="drama">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Drama · 2024</p><h3 class="sc-title">BACK TO YOU</h3><p class="sc-ep">12 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2024</p></div>
+    </div>
+    <div class="series-card" data-cat="thriller">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Thriller · 2024</p><h3 class="sc-title">THE QUIET HOUR</h3><p class="sc-ep">10 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2024</p></div>
+    </div>
+    <div class="series-card" data-cat="romance">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Romance · 2023</p><h3 class="sc-title">BETWEEN FLOORS</h3><p class="sc-ep">15 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2023</p></div>
+    </div>
+    <div class="series-card" data-cat="drama">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Drama · 2023</p><h3 class="sc-title">RED CLAY</h3><p class="sc-ep">8 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2023</p></div>
+    </div>
+    <div class="series-card" data-cat="thriller">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Suspense · 2023</p><h3 class="sc-title">LAST CALL</h3><p class="sc-ep">6 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2023</p></div>
+    </div>
+    <div class="series-card" data-cat="drama">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Drama · 2022</p><h3 class="sc-title">SUNDAY KIND</h3><p class="sc-ep">10 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2022</p></div>
+    </div>
+    <div class="series-card" data-cat="comedy">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Comedy · 2022</p><h3 class="sc-title">YARD SALE</h3><p class="sc-ep">8 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2022</p></div>
+    </div>
+    <div class="series-card" data-cat="romance">
+      <div class="sc-img"><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="sc-label"><p class="sc-tag">Romance · 2022</p><h3 class="sc-title">FIRST LIGHT</h3><p class="sc-ep">12 Episodes</p></div>
+      <div class="sc-overlay"><p class="sc-year">Platform · 2022</p></div>
+    </div>
+  </div>
+
+  <!-- FEATURED SERIES -->
+  <div class="featured">
+    <div class="f-visual">
+      <!-- SWAP: <img src="featured-still.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+      <div class="f-ph"><span>FEATURED SERIES STILL PLACEHOLDER</span></div>
+    </div>
+    <div class="f-info">
+      <p class="f-eyebrow">Featured Series</p>
+      <h2 class="f-title">BACK TO YOU</h2>
+      <p class="f-body">A 12-episode vertical drama series about a woman who returns to her Atlanta hometown after a decade away — and discovers that the life she left behind is harder to outrun than she thought. Shot entirely in Atlanta in true 9:16 format.</p>
+      <div class="f-stats">
+        <div><div class="f-stat-num">12</div><div class="f-stat-label">Episodes</div></div>
+        <div><div class="f-stat-num">ATL</div><div class="f-stat-label">Shot On Location</div></div>
+        <div><div class="f-stat-num">2024</div><div class="f-stat-label">Release Year</div></div>
+      </div>
+      <a href="contact.html" class="btn-primary">Pitch Your Series</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span class="flv">V/</span><span class="fln">VERTICAL STUDIOS ATL</span></div>
+        <p class="footer-tagline">Stories built for the vertical screen. Atlanta, GA.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
+      <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
+    anim();
+
+    function setFilter(btn,cat){
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.series-card').forEach(c=>{
+        const show=cat==='all'||c.dataset.cat===cat;
+        c.style.opacity=show?'1':'.12';
+        c.style.pointerEvents=show?'auto':'none';
+        c.style.transform=show?'':'translateY(0)';
+      });
+    }
+  </script>
+</body>
+</html>

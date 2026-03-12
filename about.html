@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — Vertical Studios ATL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --sky:#D6EEFF;--sky2:#BEE0FA;--sky3:#9DCBEE;
+      --ink:#0A1628;--ink2:#1E3A5F;
+      --cobalt:#1B4FD8;--gold:#F5C842;--white:#FFFFFF;
+      --display:'Anton',Impact,sans-serif;
+      --serif:'Playfair Display',Georgia,serif;
+      --body:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
+    nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
+    .nav-logo{text-decoration:none;position:relative;line-height:1;}
+    .nav-logo .lv{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--cobalt);display:block;line-height:.9;}
+    .nav-logo .ls{font-family:var(--body);font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+    .nav-links{display:flex;gap:36px;list-style:none;position:relative;}
+    .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cobalt);}
+
+    /* PAGE HERO */
+    .page-hero{padding:190px 56px 80px;position:relative;overflow:hidden;background:var(--sky);}
+    .page-hero::before{content:'ABOUT';position:absolute;right:-30px;top:90px;font-family:var(--display);font-size:clamp(8rem,18vw,22rem);letter-spacing:.04em;color:rgba(27,79,216,.05);pointer-events:none;white-space:nowrap;}
+    .page-eyebrow{font-size:.64rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--cobalt);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+    .page-eyebrow::before{content:'';width:28px;height:2px;background:var(--cobalt);}
+    .page-hero-title{font-family:var(--display);font-size:clamp(4rem,10vw,12rem);line-height:.88;letter-spacing:.03em;color:var(--ink);}
+    .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
+
+    /* MISSION */
+    .mission{padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;border-top:2px solid var(--sky3);}
+    .mission-text h2{font-family:var(--display);font-size:clamp(2.2rem,4vw,4rem);letter-spacing:.04em;margin-bottom:24px;line-height:1;color:var(--ink);}
+    .mission-text h2 em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
+    .mission-text p{font-size:.9rem;line-height:1.85;color:var(--ink2);margin-bottom:18px;}
+    .mission-visual{height:500px;position:relative;overflow:hidden;}
+    .mission-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
+    .mission-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.2em;color:var(--sky3);text-align:center;}
+    .mission-visual::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:4px;background:var(--cobalt);z-index:1;}
+
+    /* VALUES */
+    .values{background:var(--ink);padding:96px 56px;}
+    .values .section-label{color:var(--gold);}
+    .values .section-label::before{background:var(--gold);}
+    .values .section-title{color:var(--white);}
+    .values .section-title em{color:var(--gold);}
+    .section-label{font-size:.63rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .section-label::before{content:'';width:28px;height:2px;background:var(--cobalt);}
+    .section-title{font-family:var(--display);font-size:clamp(2.8rem,5.5vw,6.5rem);line-height:.92;letter-spacing:.03em;color:var(--ink);}
+    .section-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
+    .values-grid{margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:rgba(255,255,255,.07);}
+    .value-card{background:var(--ink);padding:44px 34px;transition:background .25s;}
+    .value-card:hover{background:#0f1f38;}
+    .value-num{font-family:var(--display);font-size:3.5rem;color:var(--gold);opacity:.45;line-height:1;margin-bottom:14px;}
+    .value-name{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--white);margin-bottom:12px;}
+    .value-text{font-size:.83rem;line-height:1.78;color:rgba(214,238,255,.5);}
+
+    /* BTS BAND */
+    .bts-band{height:380px;overflow:hidden;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
+    .bts-panel{overflow:hidden;}
+    .bts-ph-band{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
+    .bts-panel:hover .bts-ph-band{transform:scale(1.04);}
+    .bts-ph-band span{font-family:var(--display);font-size:.6rem;letter-spacing:.18em;color:var(--sky3);text-align:center;padding:12px;}
+
+    /* FOUNDERS */
+    .founders{padding:110px 56px;background:var(--sky);}
+    .founders-intro{max-width:700px;margin-bottom:72px;}
+    .founders-intro p{font-size:.95rem;line-height:1.85;color:var(--ink2);margin-top:20px;}
+    .founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--sky3);}
+    .founder-card{background:var(--sky);display:grid;grid-template-columns:240px 1fr;overflow:hidden;transition:background .25s;}
+    .founder-card:hover{background:var(--white);}
+    .founder-photo{height:320px;overflow:hidden;}
+    .founder-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
+    .founder-ph span{font-family:var(--display);font-size:.62rem;letter-spacing:.18em;color:var(--sky3);text-align:center;padding:12px;}
+    .founder-info{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;}
+    .founder-name{font-family:var(--display);font-size:2rem;letter-spacing:.05em;color:var(--ink);}
+    .founder-role{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);margin:8px 0 16px;}
+    .founder-bio{font-size:.84rem;line-height:1.8;color:var(--ink2);}
+    .founder-cred{margin-top:16px;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);display:flex;align-items:center;gap:8px;}
+    .founder-cred::before{content:'';width:20px;height:2px;background:var(--cobalt);}
+
+    /* FOOTER */
+    footer{background:var(--ink);padding:70px 56px 44px;}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
+    .footer-logo .flv{font-family:var(--display);font-size:2rem;color:var(--gold);display:block;}
+    .footer-logo .fln{font-family:var(--display);font-size:1.1rem;letter-spacing:.1em;color:var(--white);}
+    .footer-tagline{font-size:.7rem;color:rgba(214,238,255,.32);letter-spacing:.05em;margin-top:6px;}
+    .footer-links{display:flex;gap:56px;}
+    .footer-col h4{font-size:.58rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+    .footer-col a{font-size:.8rem;color:rgba(214,238,255,.42);text-decoration:none;transition:color .2s;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-copy{font-size:.67rem;color:rgba(214,238,255,.2);letter-spacing:.04em;}
+    .footer-socials{display:flex;gap:20px;}
+    .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
+    .footer-socials a:hover{color:var(--gold);}
+
+    @media(max-width:960px){
+      nav{padding:22px 28px;}
+      .page-hero,.mission,.values,.founders{padding:80px 28px;}
+      .mission{grid-template-columns:1fr;gap:40px;}
+      .values-grid{grid-template-columns:1fr;}
+      .bts-band{grid-template-columns:repeat(2,1fr);height:auto;}
+      .bts-panel{height:200px;}
+      .founders-grid{grid-template-columns:1fr;}
+      .founder-card{grid-template-columns:1fr;}
+      .founder-photo{height:260px;}
+      .footer-top{flex-direction:column;gap:36px;}
+      footer{padding:60px 28px 36px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="lv">V/</span>
+      <span class="ls">Vertical Studios ATL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-hero">
+    <p class="page-eyebrow">Who We Are</p>
+    <h1 class="page-hero-title">VERTICAL<br>FROM THE<br><em>Start</em></h1>
+  </div>
+
+  <div class="mission">
+    <div class="mission-text">
+      <h2>ATLANTA'S VERTICAL<br><em>Drama Studio</em></h2>
+      <p>Vertical Studios ATL was built with a singular focus: produce world-class narrative drama for the vertical screen. We're not a traditional studio that adapted — vertical is all we've ever done.</p>
+      <p>Based in Atlanta, Georgia, we work with writers, directors, and platforms who understand that the mobile-first audience deserves stories crafted specifically for how they watch — not reformatted from somewhere else.</p>
+      <p>Our experienced co-founders have collectively produced and directed over 50 vertical series for platforms across the industry, bringing unmatched format expertise to every project we take on.</p>
+    </div>
+    <div class="mission-visual">
+      <!-- SWAP: <img src="bts-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+      <div class="mission-ph"><span>BTS / COMPANY PHOTO PLACEHOLDER</span></div>
+    </div>
+  </div>
+
+  <section class="values">
+    <div class="section-label">What Drives Us</div>
+    <h2 class="section-title">OUR<br><em>Values</em></h2>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-num">01</div><h3 class="value-name">FORMAT MASTERY</h3><p class="value-text">We don't adapt — we originate. Every script, shot, and cut is designed for 9:16 from day one. Vertical isn't a constraint; it's our creative language.</p></div>
+      <div class="value-card"><div class="value-num">02</div><h3 class="value-name">STORY FIRST</h3><p class="value-text">Short runtime doesn't mean shallow storytelling. We demand compelling characters, genuine tension, and satisfying narrative arcs in every episode we produce.</p></div>
+      <div class="value-card"><div class="value-num">03</div><h3 class="value-name">PLATFORM PARTNERSHIP</h3><p class="value-text">We build long-term relationships with platforms, not transactions. Understanding what each platform needs — technically and creatively — makes our content perform better.</p></div>
+    </div>
+  </section>
+
+  <div class="bts-band">
+    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
+    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
+    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
+    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
+  </div>
+
+  <section class="founders">
+    <div class="founders-intro">
+      <div class="section-label">The Founding Team</div>
+      <h2 class="section-title">MEET THE<br><em>Co-Founders</em></h2>
+      <p>Vertical Studios ATL was founded by two industry veterans who saw the vertical format coming before the rest of the industry caught on — and spent years building the expertise to lead it. Together they've produced and directed more than 50 vertical series across multiple platforms.</p>
+    </div>
+    <div class="founders-grid">
+      <div class="founder-card">
+        <div class="founder-photo">
+          <!-- SWAP: <img src="founder1-headshot.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+          <div class="founder-ph"><span>CO-FOUNDER<br>HEADSHOT</span></div>
+        </div>
+        <div class="founder-info">
+          <h3 class="founder-name">[CO-FOUNDER NAME]</h3>
+          <p class="founder-role">Co-Founder · Executive Producer</p>
+          <p class="founder-bio">Replace this with a real bio about your co-founder. Highlight their background, the platforms they've worked with, the genres they specialize in, and what drew them to vertical storytelling.</p>
+          <p class="founder-cred">25+ Series Produced</p>
+        </div>
+      </div>
+      <div class="founder-card">
+        <div class="founder-photo">
+          <!-- SWAP: <img src="founder2-headshot.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
+          <div class="founder-ph"><span>CO-FOUNDER<br>HEADSHOT</span></div>
+        </div>
+        <div class="founder-info">
+          <h3 class="founder-name">[CO-FOUNDER NAME]</h3>
+          <p class="founder-role">Co-Founder · Director</p>
+          <p class="founder-bio">Replace this with a real bio about your co-founder. Highlight their directorial background, the range of genres they've worked in, and their specific approach to vertical-native filmmaking.</p>
+          <p class="founder-cred">25+ Series Directed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span class="flv">V/</span><span class="fln">VERTICAL STUDIOS ATL</span></div>
+        <p class="footer-tagline">Stories built for the vertical screen. Atlanta, GA.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
+      <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
+    anim();
+  </script>
+</body>
+</html>

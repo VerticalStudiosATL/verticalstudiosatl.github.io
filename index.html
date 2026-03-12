@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vertical Studios ATL — Micro-Drama Series</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --sky:    #D6EEFF;
+      --sky2:   #BEE0FA;
+      --sky3:   #9DCBEE;
+      --ink:    #0A1628;
+      --ink2:   #1E3A5F;
+      --cobalt: #1B4FD8;
+      --coral:  #FF4D3B;
+      --gold:   #F5C842;
+      --white:  #FFFFFF;
+      --display: 'Anton', Impact, sans-serif;
+      --serif:   'Playfair Display', Georgia, serif;
+      --body:    'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--sky); color: var(--ink); font-family: var(--body); font-weight: 300; overflow-x: hidden; cursor: none; }
+
+    .cursor { position: fixed; width: 10px; height: 10px; background: var(--cobalt); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1.5px solid var(--cobalt); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: width .2s, height .2s; opacity: 0.5; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 26px 56px; }
+    nav::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(214,238,255,0.97) 0%, rgba(214,238,255,0) 100%); pointer-events: none; }
+    .nav-logo { text-decoration: none; position: relative; line-height: 1; }
+    .nav-logo .lv { font-family: var(--display); font-size: 1.7rem; letter-spacing: 0.06em; color: var(--cobalt); display: block; line-height: 0.9; }
+    .nav-logo .ls { font-family: var(--body); font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink2); }
+    .nav-links { display: flex; gap: 36px; list-style: none; position: relative; }
+    .nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink2); text-decoration: none; opacity: 0.6; transition: opacity .2s, color .2s; }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; color: var(--cobalt); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+    .hero::before { content: 'V'; position: absolute; right: -80px; top: -60px; font-family: var(--display); font-size: 72vw; line-height: 1; color: rgba(27,79,216,0.055); pointer-events: none; z-index: 0; }
+    .hero-left { display: flex; flex-direction: column; justify-content: flex-end; padding: 160px 56px 90px; position: relative; z-index: 1; }
+    .hero-eyebrow { font-size: 0.64rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cobalt); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+    .hero-eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--cobalt); }
+    h1.hero-headline { font-family: var(--display); font-size: clamp(4.5rem, 9vw, 11rem); line-height: 0.9; letter-spacing: 0.02em; color: var(--ink); }
+    h1.hero-headline em { font-family: var(--serif); font-style: italic; color: var(--cobalt); }
+    .hero-sub { margin-top: 28px; font-size: 0.92rem; line-height: 1.75; color: var(--ink2); max-width: 400px; }
+    .hero-ctas { margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 14px 34px; background: var(--cobalt); color: var(--white); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background .2s, transform .15s; }
+    .btn-primary:hover { background: var(--ink2); transform: translateY(-2px); }
+    .btn-outline { display: inline-block; padding: 13px 34px; border: 1.5px solid var(--cobalt); color: var(--cobalt); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none; transition: background .2s, color .2s; }
+    .btn-outline:hover { background: var(--cobalt); color: var(--white); }
+
+    .hero-right { position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; padding: 140px 40px 70px; gap: 14px; }
+    .phone-mock { width: 155px; border-radius: 26px; overflow: hidden; box-shadow: 0 28px 70px rgba(10,22,40,0.16), 0 6px 20px rgba(10,22,40,0.09); background: var(--ink); position: relative; flex-shrink: 0; }
+    .phone-mock:nth-child(1) { height: 330px; transform: translateY(28px) rotate(-4deg); }
+    .phone-mock:nth-child(2) { height: 395px; transform: rotate(1deg); width: 172px; }
+    .phone-mock:nth-child(3) { height: 330px; transform: translateY(28px) rotate(4deg); }
+    .phone-screen { width: 100%; height: 100%; background: linear-gradient(160deg, #18284a, #0a1525); display: flex; align-items: center; justify-content: center; }
+    .phone-screen span { font-family: var(--display); font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.13); text-align: center; padding: 12px; }
+    .phone-notch { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 46px; height: 7px; background: var(--ink); border-radius: 4px; z-index: 2; }
+    .hero-badge { position: absolute; bottom: 80px; right: 36px; background: var(--gold); color: var(--ink); padding: 14px 16px; text-align: center; box-shadow: 4px 4px 0 var(--ink2); }
+    .hero-badge strong { font-family: var(--display); font-size: 2.2rem; letter-spacing: 0.03em; display: block; line-height: 1; }
+    .hero-badge span { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; }
+
+    /* TICKER */
+    .ticker-wrap { overflow: hidden; background: var(--cobalt); padding: 11px 0; white-space: nowrap; }
+    .ticker { display: inline-flex; animation: ticker 26s linear infinite; }
+    .ticker-item { font-family: var(--display); font-size: 0.85rem; letter-spacing: 0.18em; padding: 0 36px; color: var(--white); opacity: 0.9; }
+    .ticker-dot { color: var(--gold); }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* SECTION LABELS */
+    .section-label { font-size: 0.63rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cobalt); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .section-label::before { content: ''; width: 28px; height: 2px; background: var(--cobalt); }
+    .section-title { font-family: var(--display); font-size: clamp(2.8rem, 5.5vw, 6.5rem); line-height: 0.92; letter-spacing: 0.03em; color: var(--ink); }
+    .section-title em { font-family: var(--serif); font-style: italic; color: var(--cobalt); }
+
+    /* VIDEO BANNER */
+    .video-banner { position: relative; height: 68vh; min-height: 460px; overflow: hidden; background: var(--ink); }
+    .vb-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #0d1e38, #091525); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; }
+    .vb-icon { font-family: var(--display); font-size: clamp(4rem, 8vw, 9rem); color: rgba(255,255,255,0.05); letter-spacing: 0.1em; }
+    .vb-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
+    .vb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .vb-play { width: 76px; height: 76px; border: 2px solid rgba(255,255,255,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: none; transition: background .2s, border-color .2s; }
+    .vb-play:hover { background: var(--cobalt); border-color: var(--cobalt); }
+    .vb-play svg { width: 26px; height: 26px; margin-left: 4px; }
+    .vb-caption { position: absolute; bottom: 30px; left: 56px; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+    /* WHAT WE DO */
+    .what-we-do { background: var(--sky); padding: 110px 56px; }
+    .wwd-grid { margin-top: 68px; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; background: var(--sky3); }
+    .wwd-card { background: var(--sky); padding: 46px 38px; position: relative; overflow: hidden; transition: background .25s; }
+    .wwd-card:hover { background: var(--white); }
+    .wwd-num { position: absolute; top: 18px; right: 22px; font-family: var(--display); font-size: 4.5rem; color: rgba(27,79,216,0.08); line-height: 1; }
+    .wwd-title { font-family: var(--display); font-size: 1.85rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 14px; transition: color .2s; }
+    .wwd-card:hover .wwd-title { color: var(--cobalt); }
+    .wwd-text { font-size: 0.85rem; line-height: 1.8; color: var(--ink2); max-width: 310px; }
+
+    /* FORMAT SECTION */
+    .format-section { background: var(--ink); padding: 110px 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .format-section .section-label { color: var(--gold); }
+    .format-section .section-label::before { background: var(--gold); }
+    .format-section .section-title { color: var(--white); }
+    .format-section .section-title em { color: var(--gold); }
+    .format-body { font-size: 0.9rem; line-height: 1.8; color: rgba(214,238,255,0.6); margin-top: 22px; max-width: 430px; }
+    .format-visual { display: flex; justify-content: center; gap: 18px; }
+    .format-phone { width: 130px; height: 260px; background: var(--sky2); border-radius: 22px; box-shadow: 0 18px 55px rgba(0,0,0,0.38); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+    .format-phone:nth-child(1) { transform: rotate(-5deg) translateY(20px); }
+    .format-phone:nth-child(2) { transform: rotate(2deg); width: 143px; height: 286px; }
+    .format-phone span { font-family: var(--display); font-size: 0.52rem; letter-spacing: 0.12em; color: var(--ink2); text-align: center; padding: 12px; opacity: 0.45; }
+    .format-phone-bar { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 38px; height: 5px; background: var(--sky3); border-radius: 3px; }
+
+    /* FEATURED SERIES */
+    .featured-work { background: var(--sky2); padding: 110px 0; }
+    .fw-header { padding: 0 56px; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
+    .fw-scroll { display: flex; gap: 3px; overflow-x: auto; padding: 0 56px 4px; scrollbar-width: none; }
+    .fw-scroll::-webkit-scrollbar { display: none; }
+    .fw-card { flex: 0 0 218px; height: 375px; background: var(--ink); border-radius: 4px; overflow: hidden; position: relative; transition: transform .4s; cursor: none; }
+    .fw-card:hover { transform: translateY(-8px); }
+    .fw-card-img { width: 100%; height: 100%; background: linear-gradient(160deg, #1a2a48, #0a1525); display: flex; align-items: center; justify-content: center; }
+    .fw-card-img span { font-family: var(--display); font-size: 0.58rem; letter-spacing: 0.14em; color: rgba(255,255,255,0.1); text-align: center; padding: 14px; }
+    .fw-card-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 18px 18px; background: linear-gradient(to top, rgba(10,22,40,0.98) 0%, transparent 100%); }
+    .fw-card-tag { font-size: 0.56rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 5px; }
+    .fw-card-title { font-family: var(--display); font-size: 1.25rem; letter-spacing: 0.04em; color: var(--white); line-height: 1.1; }
+    .fw-card-ep { font-size: 0.66rem; color: rgba(214,238,255,0.42); margin-top: 4px; }
+
+    /* STATS */
+    .stats-band { background: var(--cobalt); padding: 70px 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; }
+    .stat { text-align: center; padding: 14px; }
+    .stat-num { font-family: var(--display); font-size: clamp(2.8rem, 5vw, 5rem); letter-spacing: 0.04em; color: var(--white); line-height: 1; }
+    .stat-num sup { font-size: 0.5em; vertical-align: super; }
+    .stat-label { font-size: 0.66rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.58); margin-top: 8px; }
+
+    /* BTS GRID */
+    .bts { background: var(--sky); padding: 110px 56px; }
+    .bts-grid { margin-top: 60px; display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 300px 220px; gap: 4px; }
+    .bts-cell { overflow: hidden; }
+    .bts-cell:first-child { grid-row: span 2; }
+    .bts-ph { width: 100%; height: 100%; background: var(--sky2); display: flex; align-items: center; justify-content: center; transition: transform .5s; }
+    .bts-cell:hover .bts-ph { transform: scale(1.03); }
+    .bts-ph span { font-family: var(--display); font-size: 0.6rem; letter-spacing: 0.18em; color: var(--sky3); text-align: center; padding: 14px; }
+
+    /* FOOTER */
+    footer { background: var(--ink); padding: 70px 56px 44px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 52px; }
+    .footer-logo { line-height: 1; }
+    .footer-logo .flv { font-family: var(--display); font-size: 2rem; color: var(--gold); display: block; }
+    .footer-logo .fln { font-family: var(--display); font-size: 1.1rem; letter-spacing: 0.1em; color: var(--white); }
+    .footer-tagline { font-size: 0.7rem; color: rgba(214,238,255,0.32); letter-spacing: 0.05em; margin-top: 6px; }
+    .footer-links { display: flex; gap: 56px; }
+    .footer-col h4 { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+    .footer-col a { font-size: 0.8rem; color: rgba(214,238,255,0.42); text-decoration: none; transition: color .2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 0.67rem; color: rgba(214,238,255,0.2); letter-spacing: 0.04em; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 0.63rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(214,238,255,0.28); text-decoration: none; transition: color .2s; }
+    .footer-socials a:hover { color: var(--gold); }
+
+    @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+    .hero-left > * { animation: fadeUp 0.65s ease both; }
+    .hero-left > *:nth-child(2) { animation-delay:.1s; }
+    .hero-left > *:nth-child(3) { animation-delay:.2s; }
+    .hero-left > *:nth-child(4) { animation-delay:.3s; }
+    .hero-left > *:nth-child(5) { animation-delay:.4s; }
+
+    @media (max-width: 960px) {
+      nav { padding: 22px 28px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 140px 28px 64px; }
+      .format-section { grid-template-columns: 1fr; gap: 40px; padding: 80px 28px; }
+      .format-visual { display: none; }
+      .wwd-grid { grid-template-columns: 1fr; }
+      .stats-band { grid-template-columns: repeat(2,1fr); }
+      .bts-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .bts-cell:first-child { grid-row: span 1; }
+      .fw-header,.fw-scroll { padding: 0 28px; }
+      .what-we-do,.bts { padding: 80px 28px; }
+      .footer-top { flex-direction: column; gap: 36px; }
+      footer { padding: 60px 28px 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="lv">V/</span>
+      <span class="ls">Vertical Studios ATL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Atlanta, GA · Vertical Streaming</p>
+      <h1 class="hero-headline">STORIES<br>BUILT FOR<br><em>The Feed</em></h1>
+      <p class="hero-sub">Atlanta's premier vertical micro-drama studio. We produce narrative series purpose-built for the vertical screen — engineered for the way modern audiences actually watch.</p>
+      <div class="hero-ctas">
+        <a href="work.html" class="btn-primary">See Our Series</a>
+        <a href="contact.html" class="btn-outline">Work With Us</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="phone-mock"><div class="phone-notch"></div><div class="phone-screen"><span>SERIES STILL</span></div></div>
+      <div class="phone-mock"><div class="phone-notch"></div><div class="phone-screen"><span>SERIES STILL</span></div></div>
+      <div class="phone-mock"><div class="phone-notch"></div><div class="phone-screen"><span>SERIES STILL</span></div></div>
+      <div class="hero-badge"><strong>50+</strong><span>Series<br>Produced</span></div>
+    </div>
+  </section>
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">Vertical Micro-Drama <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Narrative Series <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Atlanta, Georgia <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Vertical Platforms <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">50+ Series Produced <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Short-Form Drama <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Vertical Micro-Drama <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Narrative Series <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Atlanta, Georgia <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Vertical Platforms <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">50+ Series Produced <span class="ticker-dot">✦</span></span>
+      <span class="ticker-item">Short-Form Drama <span class="ticker-dot">✦</span></span>
+    </div>
+  </div>
+
+  <div class="video-banner">
+    <!-- SWAP: <video autoplay muted loop playsinline src="reel.mp4" style="width:100%;height:100%;object-fit:cover;"></video> -->
+    <div class="vb-placeholder">
+      <div class="vb-icon">▶</div>
+      <p class="vb-label">Your series reel goes here</p>
+    </div>
+    <div class="vb-overlay">
+      <div class="vb-play">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <p class="vb-caption">Vertical Studios ATL · Series Reel · 2024</p>
+  </div>
+
+  <section class="what-we-do">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">VERTICAL-FIRST<br><em>Production</em></h2>
+    <div class="wwd-grid">
+      <div class="wwd-card"><div class="wwd-num">01</div><h3 class="wwd-title">SERIES DEVELOPMENT</h3><p class="wwd-text">We develop original micro-drama IP from the ground up — scripts, formats, and episode structures purpose-designed for vertical platform consumption and mobile-native audiences.</p></div>
+      <div class="wwd-card"><div class="wwd-num">02</div><h3 class="wwd-title">PRINCIPAL PHOTOGRAPHY</h3><p class="wwd-text">Shot in 9:16 from day one. Our Atlanta-based crews know how to compose, light, and direct for the vertical frame — no cropping, no compromise, no afterthought.</p></div>
+      <div class="wwd-card"><div class="wwd-num">03</div><h3 class="wwd-title">POST-PRODUCTION</h3><p class="wwd-text">Editing, color, sound, and motion graphics optimized for mobile delivery. We produce platform-ready assets that meet every technical specification, every time.</p></div>
+      <div class="wwd-card"><div class="wwd-num">04</div><h3 class="wwd-title">PLATFORM DISTRIBUTION</h3><p class="wwd-text">Established relationships with leading vertical streaming platforms. We help your series find its home and its audience — from first pitch to final delivery.</p></div>
+    </div>
+  </section>
+
+  <section class="format-section">
+    <div>
+      <div class="section-label">Our Focus</div>
+      <h2 class="section-title">BUILT FOR<br><em>The Vertical</em><br>SCREEN</h2>
+      <p class="format-body">The world doesn't watch TV the same way anymore. Vertical micro-drama is the fastest-growing narrative format on the planet — and we've been doing it exclusively since day one. Every creative and technical decision we make is optimized for the 9:16 frame.</p>
+      <p class="format-body" style="margin-top:16px;">With over 50 series produced by our founding team, we bring more vertical-specific experience to every project than any other studio in Atlanta.</p>
+    </div>
+    <div class="format-visual">
+      <div class="format-phone"><div class="format-phone-bar"></div><span>SERIES STILL PLACEHOLDER</span></div>
+      <div class="format-phone"><div class="format-phone-bar"></div><span>SERIES STILL PLACEHOLDER</span></div>
+    </div>
+  </section>
+
+  <section class="featured-work">
+    <div class="fw-header">
+      <div>
+        <div class="section-label">Selected Series</div>
+        <h2 class="section-title">RECENT<br><em>Work</em></h2>
+      </div>
+      <a href="work.html" class="btn-outline">View All Series</a>
+    </div>
+    <div class="fw-scroll">
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2024</p><h3 class="fw-card-title">BACK TO YOU</h3><p class="fw-card-ep">12 Episodes</p></div></div>
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Thriller · 2024</p><h3 class="fw-card-title">THE QUIET HOUR</h3><p class="fw-card-ep">10 Episodes</p></div></div>
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Romance · 2023</p><h3 class="fw-card-title">BETWEEN FLOORS</h3><p class="fw-card-ep">15 Episodes</p></div></div>
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2023</p><h3 class="fw-card-title">RED CLAY</h3><p class="fw-card-ep">8 Episodes</p></div></div>
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Suspense · 2023</p><h3 class="fw-card-title">LAST CALL</h3><p class="fw-card-ep">6 Episodes</p></div></div>
+      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2022</p><h3 class="fw-card-title">SUNDAY KIND</h3><p class="fw-card-ep">10 Episodes</p></div></div>
+    </div>
+  </section>
+
+  <div class="stats-band">
+    <div class="stat"><div class="stat-num">50<sup>+</sup></div><div class="stat-label">Series Produced</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Experienced Co-Founders</div></div>
+    <div class="stat"><div class="stat-num">ATL</div><div class="stat-label">Based in Atlanta, GA</div></div>
+    <div class="stat"><div class="stat-num">9:16</div><div class="stat-label">Vertical-Only Format</div></div>
+  </div>
+
+  <section class="bts">
+    <div class="section-label">Behind The Lens</div>
+    <h2 class="section-title">ON<br><em>Set</em></h2>
+    <div class="bts-grid">
+      <div class="bts-cell"><div class="bts-ph" style="height:100%"><span>BTS PHOTO — LARGE</span></div></div>
+      <div class="bts-cell" style="height:300px"><div class="bts-ph"><span>BTS PHOTO</span></div></div>
+      <div class="bts-cell" style="height:300px"><div class="bts-ph"><span>BTS PHOTO</span></div></div>
+      <div class="bts-cell" style="height:220px"><div class="bts-ph"><span>BTS PHOTO</span></div></div>
+      <div class="bts-cell" style="height:220px"><div class="bts-ph"><span>BTS PHOTO</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span class="flv">V/</span><span class="fln">VERTICAL STUDIOS ATL</span></div>
+        <p class="footer-tagline">Stories built for the vertical screen. Atlanta, GA.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Development</a></li><li><a href="#">Production</a></li><li><a href="#">Post-Production</a></li><li><a href="#">Distribution</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
+      <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
+    anim();
+  </script>
+</body>
+</html>

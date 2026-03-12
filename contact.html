@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Vertical Studios ATL</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,700;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    :root{
+      --sky:#D6EEFF;--sky2:#BEE0FA;--sky3:#9DCBEE;
+      --ink:#0A1628;--ink2:#1E3A5F;
+      --cobalt:#1B4FD8;--gold:#F5C842;--white:#FFFFFF;
+      --display:'Anton',Impact,sans-serif;
+      --serif:'Playfair Display',Georgia,serif;
+      --body:'DM Sans',sans-serif;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
+    .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+    .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
+    nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
+    .nav-logo{text-decoration:none;position:relative;line-height:1;}
+    .nav-logo .lv{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--cobalt);display:block;line-height:.9;}
+    .nav-logo .ls{font-family:var(--body);font-size:.58rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+    .nav-links{display:flex;gap:36px;list-style:none;position:relative;}
+    .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
+    .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cobalt);}
+
+    /* SPLIT LAYOUT */
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh;}
+
+    /* LEFT — cobalt panel */
+    .contact-left{
+      background:var(--cobalt);
+      padding:160px 60px 80px;
+      display:flex;flex-direction:column;justify-content:space-between;
+      position:relative;overflow:hidden;
+    }
+    .contact-left::before{
+      content:'V/';
+      position:absolute;bottom:-60px;left:-20px;
+      font-family:var(--display);font-size:clamp(10rem,22vw,26rem);
+      letter-spacing:.04em;color:rgba(0,0,0,.1);
+      pointer-events:none;line-height:1;
+    }
+    .cl-eyebrow{font-size:.63rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+    .cl-eyebrow::before{content:'';width:28px;height:2px;background:rgba(255,255,255,.7);}
+    .cl-title{font-family:var(--display);font-size:clamp(3.5rem,7vw,8rem);line-height:.9;letter-spacing:.03em;color:var(--white);}
+    .cl-title em{font-family:var(--serif);font-style:italic;color:var(--gold);}
+    .cl-sub{font-size:.9rem;line-height:1.78;color:rgba(255,255,255,.75);max-width:360px;margin-top:26px;}
+    .contact-details{position:relative;z-index:1;}
+    .cd-item{padding:20px 0;border-top:1px solid rgba(255,255,255,.2);}
+    .cd-item:last-child{border-bottom:1px solid rgba(255,255,255,.2);}
+    .cd-label{font-size:.58rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:6px;}
+    .cd-value{font-family:var(--display);font-size:1.3rem;letter-spacing:.05em;color:var(--white);}
+    .cd-value a{color:inherit;text-decoration:none;}
+    .cd-value a:hover{color:var(--gold);}
+
+    /* RIGHT — form */
+    .contact-right{background:var(--sky);padding:160px 60px 80px;}
+    .form-heading{font-family:var(--display);font-size:clamp(2rem,3.5vw,3.8rem);letter-spacing:.04em;margin-bottom:44px;line-height:.95;color:var(--ink);}
+    .form-heading em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
+    .form-group{margin-bottom:28px;}
+    .form-label{display:block;font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);opacity:.6;margin-bottom:9px;}
+    .form-input,.form-select,.form-textarea{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--sky3);color:var(--ink);font-family:var(--body);font-size:.95rem;font-weight:300;padding:10px 0;outline:none;transition:border-color .2s;appearance:none;}
+    .form-select{cursor:none;}
+    .form-select option{background:var(--sky);color:var(--ink);}
+    .form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:var(--cobalt);}
+    .form-input::placeholder,.form-textarea::placeholder{color:rgba(10,22,40,.25);}
+    .form-textarea{resize:none;height:96px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+    .btn-submit{margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:14px 36px;background:var(--cobalt);color:var(--white);border:none;font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:none;transition:background .2s,transform .15s;}
+    .btn-submit:hover{background:var(--ink2);transform:translateY(-2px);}
+    .btn-submit svg{width:15px;height:15px;transition:transform .2s;}
+    .btn-submit:hover svg{transform:translateX(4px);}
+
+    .form-success{display:none;text-align:center;padding:60px 20px;}
+    .form-success.visible{display:block;}
+    .success-icon{width:52px;height:52px;border:2px solid var(--cobalt);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}
+    .success-icon svg{width:22px;height:22px;color:var(--cobalt);}
+    .success-title{font-family:var(--display);font-size:2.5rem;letter-spacing:.08em;color:var(--ink);margin-bottom:12px;}
+    .success-text{font-size:.88rem;color:var(--ink2);line-height:1.7;}
+
+    /* MAP */
+    .map-strip{height:280px;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+    .map-strip::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 30px,rgba(255,255,255,.018) 30px,rgba(255,255,255,.018) 31px),repeating-linear-gradient(90deg,transparent,transparent 30px,rgba(255,255,255,.018) 30px,rgba(255,255,255,.018) 31px);}
+    .map-pin{position:relative;z-index:1;text-align:center;}
+    .map-pin-dot{width:13px;height:13px;background:var(--gold);border-radius:50%;margin:0 auto 11px;box-shadow:0 0 0 8px rgba(245,200,66,.18),0 0 0 16px rgba(245,200,66,.07);animation:pinPulse 2.5s infinite;}
+    @keyframes pinPulse{0%,100%{box-shadow:0 0 0 8px rgba(245,200,66,.18),0 0 0 16px rgba(245,200,66,.07);}50%{box-shadow:0 0 0 14px rgba(245,200,66,.13),0 0 0 26px rgba(245,200,66,.04);}}
+    .map-pin-label{font-family:var(--display);font-size:1.2rem;letter-spacing:.12em;color:rgba(214,238,255,.6);}
+    .map-pin-sub{font-size:.68rem;color:rgba(214,238,255,.28);letter-spacing:.1em;margin-top:3px;}
+
+    footer{background:var(--ink);padding:70px 56px 44px;}
+    .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
+    .footer-logo .flv{font-family:var(--display);font-size:2rem;color:var(--gold);display:block;}
+    .footer-logo .fln{font-family:var(--display);font-size:1.1rem;letter-spacing:.1em;color:var(--white);}
+    .footer-tagline{font-size:.7rem;color:rgba(214,238,255,.32);letter-spacing:.05em;margin-top:6px;}
+    .footer-links{display:flex;gap:56px;}
+    .footer-col h4{font-size:.58rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+    .footer-col a{font-size:.8rem;color:rgba(214,238,255,.42);text-decoration:none;transition:color .2s;}
+    .footer-col a:hover{color:var(--white);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-copy{font-size:.67rem;color:rgba(214,238,255,.2);letter-spacing:.04em;}
+    .footer-socials{display:flex;gap:20px;}
+    .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
+    .footer-socials a:hover{color:var(--gold);}
+
+    @media(max-width:960px){
+      nav{padding:22px 28px;}
+      .contact-wrap{grid-template-columns:1fr;}
+      .contact-left,.contact-right{padding:100px 28px 60px;}
+      .form-row{grid-template-columns:1fr;}
+      .footer-top{flex-direction:column;gap:36px;}
+      footer{padding:60px 28px 36px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span class="lv">V/</span>
+      <span class="ls">Vertical Studios ATL</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Our Work</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div>
+        <p class="cl-eyebrow">Let's Talk</p>
+        <h1 class="cl-title">START A<br><em>Project</em></h1>
+        <p class="cl-sub">Ready to bring your story to the vertical screen? Whether you have a concept ready to pitch or just an idea worth exploring — we'd love to hear from you.</p>
+      </div>
+      <div class="contact-details">
+        <div class="cd-item"><p class="cd-label">Email</p><p class="cd-value"><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></p></div>
+        <div class="cd-item"><p class="cd-label">Location</p><p class="cd-value">Atlanta, GA</p></div>
+        <div class="cd-item"><p class="cd-label">Social</p><p class="cd-value"><a href="#" style="margin-right:18px;">Instagram</a><a href="#">TikTok</a></p></div>
+        <div class="cd-item"><p class="cd-label">Credits</p><p class="cd-value"><a href="#">IMDb</a></p></div>
+      </div>
+    </div>
+
+    <div class="contact-right">
+      <h2 class="form-heading">PITCH YOUR<br><em>Series</em></h2>
+
+      <!-- NOTE: Sign up free at formspree.io and replace YOUR_FORM_ID below to make the form work -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label" for="firstName">First Name</label><input class="form-input" type="text" id="firstName" name="firstName" placeholder="Your first name" required></div>
+          <div class="form-group"><label class="form-label" for="lastName">Last Name</label><input class="form-input" type="text" id="lastName" name="lastName" placeholder="Your last name" required></div>
+        </div>
+        <div class="form-group"><label class="form-label" for="email">Email Address</label><input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group">
+          <label class="form-label" for="inquiryType">Inquiry Type</label>
+          <select class="form-select" id="inquiryType" name="inquiryType">
+            <option value="" disabled selected>Select a category</option>
+            <option value="series-pitch">Series Pitch / Development</option>
+            <option value="co-production">Co-Production Inquiry</option>
+            <option value="platform">Platform / Distribution</option>
+            <option value="press">Press / Media</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label" for="message">Tell Us About Your Project</label><textarea class="form-textarea" id="message" name="message" placeholder="Share your concept, genre, format ideas, or any questions..." required></textarea></div>
+        <button type="submit" class="btn-submit">
+          Send Message
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+        <h3 class="success-title">MESSAGE SENT</h3>
+        <p class="success-text">Thanks for reaching out to Vertical Studios ATL. We'll be in touch within 2 business days.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-strip">
+    <div class="map-pin">
+      <div class="map-pin-dot"></div>
+      <p class="map-pin-label">ATLANTA, GA</p>
+      <p class="map-pin-sub">Replace with a Google Maps embed</p>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo"><span class="flv">V/</span><span class="fln">VERTICAL STUDIOS ATL</span></div>
+        <p class="footer-tagline">Stories built for the vertical screen. Atlanta, GA.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
+      <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
+    anim();
+
+    function handleSubmit(e){
+      e.preventDefault();
+      document.getElementById('contactForm').style.display='none';
+      document.getElementById('formSuccess').classList.add('visible');
+    }
+  </script>
+</body>
+</html>
