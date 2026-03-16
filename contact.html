@@ -60,30 +60,24 @@
     .cd-value a{color:inherit;text-decoration:none;}
     .cd-value a:hover{color:var(--gold);}
 
-    /* RIGHT — form */
+    /* RIGHT — CTA cards */
     .contact-right{background:var(--sky);padding:160px 60px 80px;}
-    .form-heading{font-family:var(--display);font-size:clamp(2rem,3.5vw,3.8rem);letter-spacing:.04em;margin-bottom:44px;line-height:.95;color:var(--ink);}
+    .form-heading{font-family:var(--display);font-size:clamp(2rem,3.5vw,3.8rem);letter-spacing:.04em;margin-bottom:52px;line-height:.95;color:var(--ink);}
     .form-heading em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
-    .form-group{margin-bottom:28px;}
-    .form-label{display:block;font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);opacity:.6;margin-bottom:9px;}
-    .form-input,.form-select,.form-textarea{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--sky3);color:var(--ink);font-family:var(--body);font-size:.95rem;font-weight:300;padding:10px 0;outline:none;transition:border-color .2s;appearance:none;}
-    .form-select{}
-    .form-select option{background:var(--sky);color:var(--ink);}
-    .form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:var(--cobalt);}
-    .form-input::placeholder,.form-textarea::placeholder{color:rgba(10,22,40,.25);}
-    .form-textarea{resize:none;height:96px;}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-    .btn-submit{margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:14px 36px;background:var(--cobalt);color:var(--white);border:none;font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .2s,transform .15s;}
-    .btn-submit:hover{background:var(--ink2);transform:translateY(-2px);}
-    .btn-submit svg{width:15px;height:15px;transition:transform .2s;}
-    .btn-submit:hover svg{transform:translateX(4px);}
-
-    .form-success{display:none;text-align:center;padding:60px 20px;}
-    .form-success.visible{display:block;}
-    .success-icon{width:52px;height:52px;border:2px solid var(--cobalt);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;}
-    .success-icon svg{width:22px;height:22px;color:var(--cobalt);}
-    .success-title{font-family:var(--display);font-size:2.5rem;letter-spacing:.08em;color:var(--ink);margin-bottom:12px;}
-    .success-text{font-size:.88rem;color:var(--ink2);line-height:1.7;}
+    .cta-block{display:flex;flex-direction:column;}
+    .cta-card{padding:40px 0;}
+    .cta-card:first-child{border-bottom:2px solid var(--sky3);}
+    .cta-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--cobalt);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+    .cta-eyebrow::before{content:'';width:24px;height:2px;background:var(--cobalt);}
+    .cta-title{font-family:var(--display);font-size:clamp(1.8rem,3vw,2.8rem);letter-spacing:.04em;color:var(--ink);line-height:.95;margin-bottom:16px;}
+    .cta-text{font-size:.86rem;line-height:1.75;color:var(--ink2);margin-bottom:28px;max-width:380px;}
+    .cta-btn{display:inline-flex;align-items:center;gap:12px;padding:14px 32px;font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .2s,color .2s,transform .15s;}
+    .cta-btn svg{width:15px;height:15px;transition:transform .2s;}
+    .cta-btn:hover svg{transform:translateX(4px);}
+    .cta-btn-primary{background:var(--cobalt);color:var(--white);}
+    .cta-btn-primary:hover{background:var(--ink2);transform:translateY(-2px);}
+    .cta-btn-outline{border:1.5px solid var(--cobalt);color:var(--cobalt);}
+    .cta-btn-outline:hover{background:var(--cobalt);color:var(--white);transform:translateY(-2px);}
 
     /* MAP */
     .map-strip{height:280px;background:var(--ink);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
@@ -137,50 +131,40 @@
   <div class="contact-wrap">
     <div class="contact-left">
       <div>
-        <p class="cl-eyebrow">Let's Talk</p>
-        <h1 class="cl-title">START A<br><em>Project</em></h1>
-        <p class="cl-sub">Ready to bring your story to the vertical screen? Whether you have a concept ready to pitch or just an idea worth exploring — we'd love to hear from you.</p>
+        <p class="cl-eyebrow">Get In Touch</p>
+        <h1 class="cl-title">LET'S<br>MAKE A<br><em>Vertical</em></h1>
+        <p class="cl-sub">We work with platforms and studios that have a script, a budget, and a vision. If that's you, we'd love to talk. We're also always looking for experienced Atlanta-based crew to join our network.</p>
       </div>
       <div class="contact-details">
-        <div class="cd-item"><p class="cd-label">Email</p><p class="cd-value"><a href="/cdn-cgi/l/email-protection#f39b969f9f9cb3859681879a90929f808786979a9c8092879fdd909c9e"><span class="__cf_email__" data-cfemail="cba3aea7a7a48bbdaeb9bfa2a8aaa7b8bfbeafa2a4b8aabfa7e5a8a4a6">[email&#160;protected]</span></a></p></div>
+        <div class="cd-item"><p class="cd-label">For Michael or Audrey</p><p class="cd-value"><a href="mailto:michael@verticalstudiosatl.com">michael@verticalstudiosatl.com</a><br><a href="mailto:audrey@verticalstudiosatl.com">audrey@verticalstudiosatl.com</a></p></div>
         <div class="cd-item"><p class="cd-label">Location</p><p class="cd-value">Atlanta, GA</p></div>
-        <div class="cd-item"><p class="cd-label">Social</p><p class="cd-value"><a href="#" style="margin-right:18px;">Instagram</a><a href="#">TikTok</a></p></div>
-        <div class="cd-item"><p class="cd-label">Credits</p><p class="cd-value"><a href="#">IMDb</a></p></div>
+        <div class="cd-item"><p class="cd-label">Social</p><p class="cd-value"><a href="#">Instagram</a></p></div>
       </div>
     </div>
 
     <div class="contact-right">
-      <h2 class="form-heading">PITCH YOUR<br><em>Series</em></h2>
+      <h2 class="form-heading">WORK<br>WITH<br><em>Us</em></h2>
 
-      <!-- NOTE: Sign up free at formspree.io and replace YOUR_FORM_ID below to make the form work -->
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group"><label class="form-label" for="firstName">First Name</label><input class="form-input" type="text" id="firstName" name="firstName" placeholder="Your first name" required></div>
-          <div class="form-group"><label class="form-label" for="lastName">Last Name</label><input class="form-input" type="text" id="lastName" name="lastName" placeholder="Your last name" required></div>
+      <div class="cta-block">
+        <div class="cta-card">
+          <p class="cta-eyebrow">Platforms &amp; Studios</p>
+          <h3 class="cta-title">YOU HAVE A SCRIPT.<br>WE'LL MAKE IT.</h3>
+          <p class="cta-text">If you're a platform or studio with a vertical script and budget ready to go, fill out our production intake form and we'll be in touch.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf0ooAOUvMrf9whA1dy_hl2Kh9p7DjmFQMk0e1ICSpl2iHvqw/viewform?usp=publish-editor" target="_blank" class="cta-btn cta-btn-primary">
+            Production Inquiry
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
         </div>
-        <div class="form-group"><label class="form-label" for="email">Email Address</label><input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required></div>
-        <div class="form-group">
-          <label class="form-label" for="inquiryType">Inquiry Type</label>
-          <select class="form-select" id="inquiryType" name="inquiryType">
-            <option value="" disabled selected>Select a category</option>
-            <option value="series-pitch">Series Pitch / Development</option>
-            <option value="co-production">Co-Production Inquiry</option>
-            <option value="platform">Platform / Distribution</option>
-            <option value="press">Press / Media</option>
-            <option value="other">Other</option>
-          </select>
+        <div class="cta-divider"></div>
+        <div class="cta-card">
+          <p class="cta-eyebrow">Crew &amp; Talent</p>
+          <h3 class="cta-title">JOIN OUR<br>NETWORK.</h3>
+          <p class="cta-text">We're always building our roster of experienced Atlanta-based vertical crew. Tell us who you are and what you do.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_6w9tWjEoWadCTUSYWhc-ohWVlPPoQgzXExQFYmtDpB2BQA/viewform?usp=publish-editor" target="_blank" class="cta-btn cta-btn-outline">
+            Crew Application
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
         </div>
-        <div class="form-group"><label class="form-label" for="message">Tell Us About Your Project</label><textarea class="form-textarea" id="message" name="message" placeholder="Share your concept, genre, format ideas, or any questions..." required></textarea></div>
-        <button type="submit" class="btn-submit">
-          Send Message
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </button>
-      </form>
-
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-        <h3 class="success-title">MESSAGE SENT</h3>
-        <p class="success-text">Thanks for reaching out to Vertical Studios ATL. We'll be in touch within 2 business days.</p>
       </div>
     </div>
   </div>
@@ -201,17 +185,4 @@
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#4c24292020230c3a293e38252f2d203f38392825233f2d3820622f2321"><span class="__cf_email__" data-cfemail="48202d242427083e2d3a3c212b29243b3c3d2c21273b293c24662b2725">[email&#160;protected]</span></a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
-      <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
-    </div>
-  </footer>
-
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    fun
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#ea878389828b8f86aa9c8f989e83898b86999e9f8e8385998b9e86c4898587"><span class="__cf_email__" data-cfemail="f994909a91989c95b98f9c8b8d909a98958a8d
