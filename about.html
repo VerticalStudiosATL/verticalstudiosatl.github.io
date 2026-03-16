@@ -38,17 +38,26 @@
     .page-hero-title{font-family:var(--display);font-size:clamp(4rem,10vw,12rem);line-height:.88;letter-spacing:.03em;color:var(--ink);}
     .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
 
+    /* FOUNDERS */
+    .founders{padding:0 56px 110px;background:var(--sky);}
+    .founders-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--sky3);}
+    .founder-card{background:var(--sky);display:grid;grid-template-columns:240px 1fr;overflow:hidden;transition:background .25s;}
+    .founder-card:hover{background:var(--white);}
+    .founder-photo{height:320px;overflow:hidden;}
+    .founder-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+    .founder-info{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;}
+    .founder-name{font-family:var(--display);font-size:2rem;letter-spacing:.05em;color:var(--ink);}
+    .founder-role{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--cobalt);margin:8px 0 16px;}
+    .founder-bio{font-size:.84rem;line-height:1.8;color:var(--ink2);}
+
     /* MISSION */
-    .mission{padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;border-top:2px solid var(--sky3);}
+    .mission{padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;background:var(--sky);}
     .mission-text h2{font-family:var(--display);font-size:clamp(2.2rem,4vw,4rem);letter-spacing:.04em;margin-bottom:24px;line-height:1;color:var(--ink);}
     .mission-text h2 em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
     .mission-text p{font-size:.9rem;line-height:1.85;color:var(--ink2);margin-bottom:18px;}
-    .mission-visual{height:500px;position:relative;overflow:hidden;}
-    .mission-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
-    .mission-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.2em;color:var(--sky3);text-align:center;}
+    .mission-visual{height:500px;overflow:hidden;position:relative;}
     .mission-visual::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:4px;background:var(--cobalt);z-index:1;}
 
-    /* VALUES */
     .values{background:var(--ink);padding:96px 56px;}
     .values .section-label{color:var(--gold);}
     .values .section-label::before{background:var(--gold);}
@@ -76,6 +85,7 @@
     .founder-card{background:var(--sky);display:grid;grid-template-columns:240px 1fr;overflow:hidden;transition:background .25s;}
     .founder-card:hover{background:var(--white);}
     .founder-photo{height:320px;overflow:hidden;}
+    .founder-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
     .founder-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
     .founder-ph span{font-family:var(--display);font-size:.62rem;letter-spacing:.18em;color:var(--sky3);text-align:center;padding:12px;}
     .founder-info{padding:36px 32px;display:flex;flex-direction:column;justify-content:center;}
@@ -104,14 +114,14 @@
 
     @media(max-width:960px){
       nav{padding:22px 28px;}
-      .page-hero,.mission,.values,.founders{padding:80px 28px;}
+      .page-hero,.founders,.values,.mission{padding:80px 28px;}
+      .founders{padding-top:0;}
       .mission{grid-template-columns:1fr;gap:40px;}
+      .mission-visual{height:300px;}
       .values-grid{grid-template-columns:1fr;}
-      .bts-band{grid-template-columns:repeat(2,1fr);height:auto;}
-      .bts-panel{height:200px;}
       .founders-grid{grid-template-columns:1fr;}
       .founder-card{grid-template-columns:1fr;}
-      .founder-photo{height:260px;}
+      .founder-photo{height:400px;}
       .footer-top{flex-direction:column;gap:36px;}
       footer{padding:60px 28px 36px;}
     }
@@ -132,43 +142,15 @@
   </nav>
 
   <div class="page-hero">
-    <p class="page-eyebrow">Who We Are</p>
-    <h1 class="page-hero-title">VERTICAL<br>FROM THE<br><em>Start</em></h1>
+    <p class="page-eyebrow">The People Behind the Work</p>
+    <h1 class="page-hero-title">MEET THE<br><em>Co-Founders</em></h1>
   </div>
-
-  <div class="mission">
-    <div class="mission-text">
-      <h2>ATLANTA'S VERTICAL<br><em>Drama Studio</em></h2>
-      <p>Vertical Studios ATL was built with a singular focus: produce world-class narrative drama for the vertical screen. We're not a traditional studio that adapted — vertical is all we've ever done.</p>
-      <p>Based in Atlanta, Georgia, co-founders Michael Sokol and Audrey Deitz launched Vertical Studios ATL after collectively producing and directing over 50 vertical series on the world's largest streaming platforms. The titles in our work section represent their personal body of work — the track record that led them to build Atlanta's first studio dedicated exclusively to vertical micro-drama.</p>
-      <p>We work with platforms who understand that the mobile-first audience deserves stories crafted specifically for how they watch — not reformatted from somewhere else.</p>
-    </div>
-    <div class="mission-visual">
-      <!-- SWAP: <img src="About BTS 1.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-      <img src="About%20BTS%201.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Vertical Studios ATL on set">
-    </div>
-  </div>
-
-  <section class="values">
-    <div class="section-label">What Drives Us</div>
-    <h2 class="section-title">OUR<br><em>Values</em></h2>
-    <div class="values-grid">
-      <div class="value-card"><div class="value-num">01</div><h3 class="value-name">FORMAT MASTERY</h3><p class="value-text">We don't adapt — we originate. Every script, shot, and cut is designed for 9:16 from day one. Vertical isn't a constraint; it's our creative language.</p></div>
-      <div class="value-card"><div class="value-num">02</div><h3 class="value-name">STORY FIRST</h3><p class="value-text">Short runtime doesn't mean shallow storytelling. We demand compelling characters, genuine tension, and satisfying narrative arcs in every episode we produce.</p></div>
-      <div class="value-card"><div class="value-num">03</div><h3 class="value-name">PLATFORM PARTNERSHIP</h3><p class="value-text">We build long-term relationships with platforms, not transactions. Understanding what each platform needs — technically and creatively — makes our content perform better.</p></div>
-    </div>
-  </section>
 
   <section class="founders">
-    <div class="founders-intro">
-      <div class="section-label">The Founding Team</div>
-      <h2 class="section-title">MEET THE<br><em>Co-Founders</em></h2>
-      <p>Michael Sokol and Audrey Deitz founded Vertical Studios ATL after years of working independently as producer and director on some of the most-watched vertical series in the world. Together they've produced and directed more than 50 vertical series across ReelShort, DramaBox, Vigloo, and other major platforms — including titles that have broken viewership records. Vertical Studios ATL is the studio they built to bring that experience under one roof.</p>
-    </div>
     <div class="founders-grid">
       <div class="founder-card">
         <div class="founder-photo">
-          <img src="Michael%20Sokol%20Headshot.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Michael Sokol">
+          <img src="Michael%20Sokol%20Headshot.jpeg" style="width:100%;height:100%;object-fit:cover;object-position:top center;" alt="Michael Sokol">
         </div>
         <div class="founder-info">
           <h3 class="founder-name">MICHAEL SOKOL</h3>
@@ -178,7 +160,7 @@
       </div>
       <div class="founder-card">
         <div class="founder-photo">
-          <img src="Audrey%20Deitz%20Headshot.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Audrey Deitz">
+          <img src="Audrey%20Deitz%20Headshot.jpg" style="width:100%;height:100%;object-fit:cover;object-position:top center;" alt="Audrey Deitz">
         </div>
         <div class="founder-info">
           <h3 class="founder-name">AUDREY DEITZ</h3>
@@ -188,6 +170,28 @@
       </div>
     </div>
   </section>
+
+  <section class="values">
+    <div class="section-label">What Drives Us</div>
+    <h2 class="section-title">OUR<br><em>Values</em></h2>
+    <div class="values-grid">
+      <div class="value-card"><div class="value-num">01</div><h3 class="value-name">FORMAT MASTERY</h3><p class="value-text">Vertical series compete in a completely different arena than traditional TV — they go up against TikToks, Reels, and an endless feed of content optimized to hijack attention. We design our shows to win that fight. We obsess over the hooks that stop the scroll, the pacing that holds it, and the cliffhangers that get them over the paywall.</p></div>
+      <div class="value-card"><div class="value-num">02</div><h3 class="value-name">STORY FIRST</h3><p class="value-text">Short runtime doesn't mean shallow storytelling. We demand compelling characters, genuine tension, and satisfying narrative arcs in every episode we produce. Unlike other companies that will settle for plot holes "because it's vertical," we believe it's possible to check all the boxes that make a show competitive while elevating the medium with cohesive stories and well-acted characters with depth.</p></div>
+      <div class="value-card"><div class="value-num">03</div><h3 class="value-name">PLATFORM PARTNERSHIP</h3><p class="value-text">We build long-term relationships with platforms, not transactions. Understanding what each platform needs — technically and creatively — makes our content perform better.</p></div>
+    </div>
+  </section>
+
+  <div class="mission">
+    <div class="mission-text">
+      <h2>ATLANTA'S VERTICAL<br><em>Production Company</em></h2>
+      <p>Vertical Studios ATL was built with a singular focus: produce world-class narrative drama for the vertical screen. We're not a traditional studio that adapted — vertical is all we've ever done.</p>
+      <p>Co-founders Michael Sokol and Audrey Deitz launched Vertical Studios ATL after collectively producing and directing over 50 vertical series on the world's largest streaming platforms. The titles in our work section represent their personal body of work — the track record that led them to build Atlanta's first studio dedicated exclusively to vertical micro-drama.</p>
+      <p>We work with platforms who understand that the mobile-first audience deserves stories crafted specifically for how they watch — not reformatted from somewhere else.</p>
+    </div>
+    <div class="mission-visual">
+      <img src="About%20BTS%201.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Vertical Studios ATL on set">
+    </div>
+  </div>
 
   <footer>
     <div class="footer-top">
