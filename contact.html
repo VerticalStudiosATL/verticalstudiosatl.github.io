@@ -17,7 +17,7 @@
       --body:'DM Sans',sans-serif;
     }
     html{scroll-behavior:smooth;}
-    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
+    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;}
     .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
 
@@ -67,13 +67,13 @@
     .form-group{margin-bottom:28px;}
     .form-label{display:block;font-size:.6rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);opacity:.6;margin-bottom:9px;}
     .form-input,.form-select,.form-textarea{width:100%;background:transparent;border:none;border-bottom:1.5px solid var(--sky3);color:var(--ink);font-family:var(--body);font-size:.95rem;font-weight:300;padding:10px 0;outline:none;transition:border-color .2s;appearance:none;}
-    .form-select{cursor:none;}
+    .form-select{}
     .form-select option{background:var(--sky);color:var(--ink);}
     .form-input:focus,.form-select:focus,.form-textarea:focus{border-bottom-color:var(--cobalt);}
     .form-input::placeholder,.form-textarea::placeholder{color:rgba(10,22,40,.25);}
     .form-textarea{resize:none;height:96px;}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-    .btn-submit{margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:14px 36px;background:var(--cobalt);color:var(--white);border:none;font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;cursor:none;transition:background .2s,transform .15s;}
+    .btn-submit{margin-top:10px;display:inline-flex;align-items:center;gap:12px;padding:14px 36px;background:var(--cobalt);color:var(--white);border:none;font-family:var(--body);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:background .2s,transform .15s;}
     .btn-submit:hover{background:var(--ink2);transform:translateY(-2px);}
     .btn-submit svg{width:15px;height:15px;transition:transform .2s;}
     .btn-submit:hover svg{transform:translateX(4px);}
@@ -121,9 +121,6 @@
   </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="lv">V/</span>
@@ -145,7 +142,7 @@
         <p class="cl-sub">Ready to bring your story to the vertical screen? Whether you have a concept ready to pitch or just an idea worth exploring — we'd love to hear from you.</p>
       </div>
       <div class="contact-details">
-        <div class="cd-item"><p class="cd-label">Email</p><p class="cd-value"><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></p></div>
+        <div class="cd-item"><p class="cd-label">Email</p><p class="cd-value"><a href="/cdn-cgi/l/email-protection#f39b969f9f9cb3859681879a90929f808786979a9c8092879fdd909c9e"><span class="__cf_email__" data-cfemail="cba3aea7a7a48bbdaeb9bfa2a8aaa7b8bfbeafa2a4b8aabfa7e5a8a4a6">[email&#160;protected]</span></a></p></div>
         <div class="cd-item"><p class="cd-label">Location</p><p class="cd-value">Atlanta, GA</p></div>
         <div class="cd-item"><p class="cd-label">Social</p><p class="cd-value"><a href="#" style="margin-right:18px;">Instagram</a><a href="#">TikTok</a></p></div>
         <div class="cd-item"><p class="cd-label">Credits</p><p class="cd-value"><a href="#">IMDb</a></p></div>
@@ -204,7 +201,7 @@
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#4c24292020230c3a293e38252f2d203f38392825233f2d3820622f2321"><span class="__cf_email__" data-cfemail="48202d242427083e2d3a3c212b29243b3c3d2c21273b293c24662b2725">[email&#160;protected]</span></a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -213,18 +210,8 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
     document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
-    anim();
-
-    function handleSubmit(e){
-      e.preventDefault();
-      document.getElementById('contactForm').style.display='none';
-      document.getElementById('formSuccess').classList.add('visible');
-    }
-  </script>
-</body>
-</html>
+    fun

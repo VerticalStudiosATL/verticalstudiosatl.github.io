@@ -17,7 +17,7 @@
       --body:'DM Sans',sans-serif;
     }
     html{scroll-behavior:smooth;}
-    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
+    body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;}
     .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
 
@@ -40,13 +40,13 @@
 
     /* FILTER */
     .filter-bar{padding:0 56px 56px;display:flex;gap:4px;flex-wrap:wrap;}
-    .filter-btn{padding:10px 22px;border:1.5px solid var(--sky3);background:transparent;color:var(--ink2);font-family:var(--body);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:none;transition:background .2s,color .2s,border-color .2s;}
+    .filter-btn{padding:10px 22px;border:1.5px solid var(--sky3);background:transparent;color:var(--ink2);font-family:var(--body);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s;}
     .filter-btn:hover{border-color:var(--cobalt);color:var(--cobalt);}
     .filter-btn.active{background:var(--cobalt);border-color:var(--cobalt);color:var(--white);}
 
     /* VERTICAL CARD GRID — portrait format to mirror phone screens */
     .series-grid{padding:0 56px 110px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
-    .series-card{position:relative;overflow:hidden;background:var(--ink);border-radius:2px;aspect-ratio:9/14;cursor:none;transition:transform .4s;}
+    .series-card{position:relative;overflow:hidden;background:var(--ink);border-radius:2px;aspect-ratio:9/14;transition:transform .4s;}
     .series-card:hover{transform:translateY(-10px);}
     .sc-img{width:100%;height:100%;background:linear-gradient(160deg,#18284a,#0a1525);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
     .series-card:hover .sc-img{transform:scale(1.04);}
@@ -103,9 +103,6 @@
   </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="lv">V/</span>
@@ -212,11 +209,6 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
-    anim();
 
     function setFilter(btn,cat){
       document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
