@@ -79,15 +79,7 @@
     .section-title em { font-family: var(--serif); font-style: italic; color: var(--cobalt); }
 
     /* VIDEO BANNER */
-    .video-banner { position: relative; height: 68vh; min-height: 460px; overflow: hidden; background: var(--ink); }
-    .vb-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #0d1e38, #091525); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; }
-    .vb-icon { font-family: var(--display); font-size: clamp(4rem, 8vw, 9rem); color: rgba(255,255,255,0.05); letter-spacing: 0.1em; }
-    .vb-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(255,255,255,0.22); }
-    .vb-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-    .vb-play { width: 76px; height: 76px; border: 2px solid rgba(255,255,255,0.45); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; cursor: none; transition: background .2s, border-color .2s; }
-    .vb-play:hover { background: var(--cobalt); border-color: var(--cobalt); }
-    .vb-play svg { width: 26px; height: 26px; margin-left: 4px; }
-    .vb-caption { position: absolute; bottom: 30px; left: 56px; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
 
     /* WHAT WE DO */
     .what-we-do { background: var(--sky); padding: 110px 56px; }
@@ -238,28 +230,15 @@
     </div>
   </div>
 
-  <div class="video-banner">
-    <!-- SWAP: <video autoplay muted loop playsinline src="reel.mp4" style="width:100%;height:100%;object-fit:cover;"></video> -->
-    <div class="vb-placeholder">
-      <div class="vb-icon">▶</div>
-      <p class="vb-label">Your series reel goes here</p>
-    </div>
-    <div class="vb-overlay">
-      <div class="vb-play">
-        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-    </div>
-    <p class="vb-caption">Vertical Studios ATL · Series Reel · 2024</p>
-  </div>
 
   <section class="what-we-do">
     <div class="section-label">What We Do</div>
     <h2 class="section-title">VERTICAL-FIRST<br><em>Production</em></h2>
     <div class="wwd-grid">
-      <div class="wwd-card"><div class="wwd-num">01</div><h3 class="wwd-title">SERIES DEVELOPMENT</h3><p class="wwd-text">We develop original micro-drama IP from the ground up — scripts, formats, and episode structures purpose-designed for vertical platform consumption and mobile-native audiences.</p></div>
-      <div class="wwd-card"><div class="wwd-num">02</div><h3 class="wwd-title">PRINCIPAL PHOTOGRAPHY</h3><p class="wwd-text">Shot in 9:16 from day one. Our Atlanta-based crews know how to compose, light, and direct for the vertical frame — no cropping, no compromise, no afterthought.</p></div>
-      <div class="wwd-card"><div class="wwd-num">03</div><h3 class="wwd-title">POST-PRODUCTION</h3><p class="wwd-text">Editing, color, sound, and motion graphics optimized for mobile delivery. We produce platform-ready assets that meet every technical specification, every time.</p></div>
-      <div class="wwd-card"><div class="wwd-num">04</div><h3 class="wwd-title">PLATFORM DISTRIBUTION</h3><p class="wwd-text">Established relationships with leading vertical streaming platforms. We help your series find its home and its audience — from first pitch to final delivery.</p></div>
+      <div class="wwd-card"><div class="wwd-num">01</div><h3 class="wwd-title">SCRIPT & PRE-PRODUCTION</h3><p class="wwd-text">During preproduction our experienced creative producers advise on script adjustments for budget optimization and storyline coherence without compromising your data-driven story beats. We also offer cultural localization that translates foreign-originated scripts into authentic American dialogue and references, and can provide vertical series punch-ups to sharpen pacing, tighten hooks, and strengthen episode cliffhangers that will get your viewers off TikTok, onto your app, and past the paywall.</p></div>
+      <div class="wwd-card"><div class="wwd-num">02</div><h3 class="wwd-title">PRINCIPAL PHOTOGRAPHY</h3><p class="wwd-text">Shot in 9:16 from day one — no cropping, no compromise. Our vast network of Atlanta crew knows how to compose, light, and direct for the vertical frame, while blazing through 10–14 script pages per day. If you want to replicate what all the current hit shows are doing, or develop a unique style that sets your platform apart, our experienced teams are ready to execute. Plus, our established relationships with beautiful budget-friendly locations across the Atlanta area mean we can stretch your production value without stretching your budget.</p></div>
+      <div class="wwd-card"><div class="wwd-num">03</div><h3 class="wwd-title">POST-PRODUCTION</h3><p class="wwd-text">We work within whatever post workflow your platform prefers. Need to receive raw footage and handle everything in-house? We'll deliver it clean and organized. Want our DIT to assemble a rough cut for your team to finish? Done. Prefer a fully finished, platform-ready deliverable? Our network of experienced vertical series editors handles the complete post pipeline — color, sound, graphics, and final spec delivery.</p></div>
+      <div class="wwd-card"><div class="wwd-num">04</div><h3 class="wwd-title">MARKETING & DELIVERABLES</h3><p class="wwd-text">For platforms needing marketing content captured alongside production, we coordinate professional stills photographers to capture poster art and banner images to your creative specs, and can collect behind-the-scenes footage and cast interviews throughout the shoot — packaged into reels and social deliverables aligned with your marketing strategy.</p></div>
     </div>
   </section>
 
@@ -268,7 +247,7 @@
       <div class="section-label">Our Focus</div>
       <h2 class="section-title">BUILT FOR<br><em>The Vertical</em><br>SCREEN</h2>
       <p class="format-body">The world doesn't watch TV the same way anymore. Vertical micro-drama is the fastest-growing narrative format on the planet — and we've been doing it exclusively since day one. Every creative and technical decision we make is optimized for the 9:16 frame.</p>
-      <p class="format-body" style="margin-top:16px;">With over 50 series produced by our founding team, we bring more vertical-specific experience to every project than any other studio in Atlanta.</p>
+      <p class="format-body" style="margin-top:16px;">With over 50 series produced or directed by our founding team hitting record viewership numbers on the world's largest vertical streaming platforms, we bring more vertical-specific experience to the table than any other production company in Atlanta.</p>
     </div>
     <div class="format-visual">
       <div class="format-phone"><div class="format-phone-bar"></div><span>SERIES STILL PLACEHOLDER</span></div>
@@ -285,12 +264,12 @@
       <a href="work.html" class="btn-outline">View All Series</a>
     </div>
     <div class="fw-scroll">
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2024</p><h3 class="fw-card-title">BACK TO YOU</h3><p class="fw-card-ep">12 Episodes</p></div></div>
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Thriller · 2024</p><h3 class="fw-card-title">THE QUIET HOUR</h3><p class="fw-card-ep">10 Episodes</p></div></div>
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Romance · 2023</p><h3 class="fw-card-title">BETWEEN FLOORS</h3><p class="fw-card-ep">15 Episodes</p></div></div>
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2023</p><h3 class="fw-card-title">RED CLAY</h3><p class="fw-card-ep">8 Episodes</p></div></div>
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Suspense · 2023</p><h3 class="fw-card-title">LAST CALL</h3><p class="fw-card-ep">6 Episodes</p></div></div>
-      <div class="fw-card"><div class="fw-card-img"><span>SERIES STILL PLACEHOLDER</span></div><div class="fw-card-info"><p class="fw-card-tag">Drama · 2022</p><h3 class="fw-card-title">SUNDAY KIND</h3><p class="fw-card-ep">10 Episodes</p></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Heiress_Crash_Lands_Poster_Upscale.png" alt="Heiress Crash Lands on Her Husband"><div class="fw-card-info"><p class="fw-card-tag">Romance · ReelShort</p><h3 class="fw-card-title">HEIRESS CRASH LANDS ON HER HUSBAND</h3></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Divorce_Lawyer_Poster.jpg" alt="Falling for My Divorce Lawyer"><div class="fw-card-info"><p class="fw-card-tag">Drama · ReelShort</p><h3 class="fw-card-title">FALLING FOR MY DIVORCE LAWYER</h3></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Callboy_upscale_poster.png" alt="The Call Boy I Met in Paris"><div class="fw-card-info"><p class="fw-card-tag">Romance · ReelShort</p><h3 class="fw-card-title">THE CALL BOY I MET IN PARIS</h3></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Money_Guns_Poster.png" alt="Money, Guns, and a Merry Christmas"><div class="fw-card-info"><p class="fw-card-tag">Action · ReelShort</p><h3 class="fw-card-title">MONEY, GUNS, AND A MERRY CHRISTMAS</h3></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Softly_Ruined_By_You_Poster_w__logo.png" alt="Softly Ruined By You"><div class="fw-card-info"><p class="fw-card-tag">Thriller · DramaBox</p><h3 class="fw-card-title">SOFTLY RUINED BY YOU</h3></div></div>
+      <div class="fw-card"><img style="width:100%;height:100%;object-fit:cover;" src="Rckoning_Takes_Flight.png" alt="The Reckoning Takes Flight"><div class="fw-card-info"><p class="fw-card-tag">Drama · ReelShort</p><h3 class="fw-card-title">THE RECKONING TAKES FLIGHT</h3></div></div>
     </div>
   </section>
 
@@ -322,7 +301,7 @@
       <div class="footer-links">
         <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
         <div class="footer-col"><h4>Services</h4><ul><li><a href="#">Development</a></li><li><a href="#">Production</a></li><li><a href="#">Post-Production</a></li><li><a href="#">Distribution</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#a1c9c4cdcdcee1d7c4d3d5c8c2c0cdd2d5d4c5c8ced2c0d5cd8fc2cecc"><span class="__cf_email__" data-cfemail="0c64696060634c7a697e78656f6d607f78796865637f6d7860226f6361">[email&#160;protected]</span></a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -331,12 +310,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
-    anim();
-  </script>
-</body>
-</html>
+    document.addEventListener('mous

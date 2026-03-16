@@ -20,7 +20,7 @@
     body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
     .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
- 
+
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
     nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
     .nav-logo{text-decoration:none;position:relative;line-height:1;}
@@ -29,7 +29,7 @@
     .nav-links{display:flex;gap:36px;list-style:none;position:relative;}
     .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
     .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cobalt);}
- 
+
     /* PAGE HERO */
     .page-hero{padding:190px 56px 80px;position:relative;overflow:hidden;background:var(--sky);}
     .page-hero::before{content:'ABOUT';position:absolute;right:-30px;top:90px;font-family:var(--display);font-size:clamp(8rem,18vw,22rem);letter-spacing:.04em;color:rgba(27,79,216,.05);pointer-events:none;white-space:nowrap;}
@@ -37,7 +37,7 @@
     .page-eyebrow::before{content:'';width:28px;height:2px;background:var(--cobalt);}
     .page-hero-title{font-family:var(--display);font-size:clamp(4rem,10vw,12rem);line-height:.88;letter-spacing:.03em;color:var(--ink);}
     .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
- 
+
     /* MISSION */
     .mission{padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;border-top:2px solid var(--sky3);}
     .mission-text h2{font-family:var(--display);font-size:clamp(2.2rem,4vw,4rem);letter-spacing:.04em;margin-bottom:24px;line-height:1;color:var(--ink);}
@@ -47,7 +47,7 @@
     .mission-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
     .mission-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.2em;color:var(--sky3);text-align:center;}
     .mission-visual::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:4px;background:var(--cobalt);z-index:1;}
- 
+
     /* VALUES */
     .values{background:var(--ink);padding:96px 56px;}
     .values .section-label{color:var(--gold);}
@@ -64,14 +64,10 @@
     .value-num{font-family:var(--display);font-size:3.5rem;color:var(--gold);opacity:.45;line-height:1;margin-bottom:14px;}
     .value-name{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--white);margin-bottom:12px;}
     .value-text{font-size:.83rem;line-height:1.78;color:rgba(214,238,255,.5);}
- 
+
     /* BTS BAND */
-    .bts-band{height:380px;overflow:hidden;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
-    .bts-panel{overflow:hidden;}
-    .bts-ph-band{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
-    .bts-panel:hover .bts-ph-band{transform:scale(1.04);}
-    .bts-ph-band span{font-family:var(--display);font-size:.6rem;letter-spacing:.18em;color:var(--sky3);text-align:center;padding:12px;}
- 
+
+
     /* FOUNDERS */
     .founders{padding:110px 56px;background:var(--sky);}
     .founders-intro{max-width:700px;margin-bottom:72px;}
@@ -88,7 +84,7 @@
     .founder-bio{font-size:.84rem;line-height:1.8;color:var(--ink2);}
     .founder-cred{margin-top:16px;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);display:flex;align-items:center;gap:8px;}
     .founder-cred::before{content:'';width:20px;height:2px;background:var(--cobalt);}
- 
+
     /* FOOTER */
     footer{background:var(--ink);padding:70px 56px 44px;}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
@@ -105,7 +101,7 @@
     .footer-socials{display:flex;gap:20px;}
     .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
     .footer-socials a:hover{color:var(--gold);}
- 
+
     @media(max-width:960px){
       nav{padding:22px 28px;}
       .page-hero,.mission,.values,.founders{padding:80px 28px;}
@@ -124,7 +120,7 @@
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
- 
+
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="lv">V/</span>
@@ -137,12 +133,12 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
- 
+
   <div class="page-hero">
     <p class="page-eyebrow">Who We Are</p>
     <h1 class="page-hero-title">VERTICAL<br>FROM THE<br><em>Start</em></h1>
   </div>
- 
+
   <div class="mission">
     <div class="mission-text">
       <h2>ATLANTA'S VERTICAL<br><em>Drama Studio</em></h2>
@@ -155,7 +151,7 @@
       <div class="mission-ph"><span>BTS / COMPANY PHOTO PLACEHOLDER</span></div>
     </div>
   </div>
- 
+
   <section class="values">
     <div class="section-label">What Drives Us</div>
     <h2 class="section-title">OUR<br><em>Values</em></h2>
@@ -165,14 +161,7 @@
       <div class="value-card"><div class="value-num">03</div><h3 class="value-name">PLATFORM PARTNERSHIP</h3><p class="value-text">We build long-term relationships with platforms, not transactions. Understanding what each platform needs — technically and creatively — makes our content perform better.</p></div>
     </div>
   </section>
- 
-  <div class="bts-band">
-    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
-    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
-    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
-    <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
-  </div>
- 
+
   <section class="founders">
     <div class="founders-intro">
       <div class="section-label">The Founding Team</div>
@@ -204,7 +193,7 @@
       </div>
     </div>
   </section>
- 
+
   <footer>
     <div class="footer-top">
       <div>
@@ -221,7 +210,7 @@
       <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
     </div>
   </footer>
- 
+
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
