@@ -20,7 +20,7 @@
     body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;cursor:none;}
     .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
     .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
-
+ 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
     nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
     .nav-logo{text-decoration:none;position:relative;line-height:1;}
@@ -29,7 +29,7 @@
     .nav-links{display:flex;gap:36px;list-style:none;position:relative;}
     .nav-links a{font-size:.7rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
     .nav-links a:hover,.nav-links a.active{opacity:1;color:var(--cobalt);}
-
+ 
     /* PAGE HERO */
     .page-hero{padding:190px 56px 80px;position:relative;overflow:hidden;background:var(--sky);}
     .page-hero::before{content:'ABOUT';position:absolute;right:-30px;top:90px;font-family:var(--display);font-size:clamp(8rem,18vw,22rem);letter-spacing:.04em;color:rgba(27,79,216,.05);pointer-events:none;white-space:nowrap;}
@@ -37,7 +37,7 @@
     .page-eyebrow::before{content:'';width:28px;height:2px;background:var(--cobalt);}
     .page-hero-title{font-family:var(--display);font-size:clamp(4rem,10vw,12rem);line-height:.88;letter-spacing:.03em;color:var(--ink);}
     .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
-
+ 
     /* MISSION */
     .mission{padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;border-top:2px solid var(--sky3);}
     .mission-text h2{font-family:var(--display);font-size:clamp(2.2rem,4vw,4rem);letter-spacing:.04em;margin-bottom:24px;line-height:1;color:var(--ink);}
@@ -47,7 +47,7 @@
     .mission-ph{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;}
     .mission-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.2em;color:var(--sky3);text-align:center;}
     .mission-visual::before{content:'';position:absolute;left:0;top:40px;bottom:40px;width:4px;background:var(--cobalt);z-index:1;}
-
+ 
     /* VALUES */
     .values{background:var(--ink);padding:96px 56px;}
     .values .section-label{color:var(--gold);}
@@ -64,14 +64,14 @@
     .value-num{font-family:var(--display);font-size:3.5rem;color:var(--gold);opacity:.45;line-height:1;margin-bottom:14px;}
     .value-name{font-family:var(--display);font-size:1.7rem;letter-spacing:.06em;color:var(--white);margin-bottom:12px;}
     .value-text{font-size:.83rem;line-height:1.78;color:rgba(214,238,255,.5);}
-
+ 
     /* BTS BAND */
     .bts-band{height:380px;overflow:hidden;display:grid;grid-template-columns:repeat(4,1fr);gap:3px;}
     .bts-panel{overflow:hidden;}
     .bts-ph-band{width:100%;height:100%;background:var(--sky2);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
     .bts-panel:hover .bts-ph-band{transform:scale(1.04);}
     .bts-ph-band span{font-family:var(--display);font-size:.6rem;letter-spacing:.18em;color:var(--sky3);text-align:center;padding:12px;}
-
+ 
     /* FOUNDERS */
     .founders{padding:110px 56px;background:var(--sky);}
     .founders-intro{max-width:700px;margin-bottom:72px;}
@@ -88,7 +88,7 @@
     .founder-bio{font-size:.84rem;line-height:1.8;color:var(--ink2);}
     .founder-cred{margin-top:16px;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--cobalt);display:flex;align-items:center;gap:8px;}
     .founder-cred::before{content:'';width:20px;height:2px;background:var(--cobalt);}
-
+ 
     /* FOOTER */
     footer{background:var(--ink);padding:70px 56px 44px;}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
@@ -105,7 +105,7 @@
     .footer-socials{display:flex;gap:20px;}
     .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
     .footer-socials a:hover{color:var(--gold);}
-
+ 
     @media(max-width:960px){
       nav{padding:22px 28px;}
       .page-hero,.mission,.values,.founders{padding:80px 28px;}
@@ -124,7 +124,7 @@
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-
+ 
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="lv">V/</span>
@@ -137,25 +137,25 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-
+ 
   <div class="page-hero">
     <p class="page-eyebrow">Who We Are</p>
     <h1 class="page-hero-title">VERTICAL<br>FROM THE<br><em>Start</em></h1>
   </div>
-
+ 
   <div class="mission">
     <div class="mission-text">
       <h2>ATLANTA'S VERTICAL<br><em>Drama Studio</em></h2>
       <p>Vertical Studios ATL was built with a singular focus: produce world-class narrative drama for the vertical screen. We're not a traditional studio that adapted — vertical is all we've ever done.</p>
-      <p>Based in Atlanta, Georgia, we work with writers, directors, and platforms who understand that the mobile-first audience deserves stories crafted specifically for how they watch — not reformatted from somewhere else.</p>
-      <p>Our experienced co-founders have collectively produced and directed over 50 vertical series for platforms across the industry, bringing unmatched format expertise to every project we take on.</p>
+      <p>Based in Atlanta, Georgia, co-founders Michael Sokol and Audrey Deitz launched Vertical Studios ATL after collectively producing and directing over 50 vertical series on the world's largest streaming platforms. The titles in our work section represent their personal body of work — the track record that led them to build Atlanta's first studio dedicated exclusively to vertical micro-drama.</p>
+      <p>We work with platforms who understand that the mobile-first audience deserves stories crafted specifically for how they watch — not reformatted from somewhere else.</p>
     </div>
     <div class="mission-visual">
       <!-- SWAP: <img src="bts-photo.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
       <div class="mission-ph"><span>BTS / COMPANY PHOTO PLACEHOLDER</span></div>
     </div>
   </div>
-
+ 
   <section class="values">
     <div class="section-label">What Drives Us</div>
     <h2 class="section-title">OUR<br><em>Values</em></h2>
@@ -165,48 +165,46 @@
       <div class="value-card"><div class="value-num">03</div><h3 class="value-name">PLATFORM PARTNERSHIP</h3><p class="value-text">We build long-term relationships with platforms, not transactions. Understanding what each platform needs — technically and creatively — makes our content perform better.</p></div>
     </div>
   </section>
-
+ 
   <div class="bts-band">
     <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
     <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
     <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
     <div class="bts-panel"><div class="bts-ph-band"><span>BTS PHOTO</span></div></div>
   </div>
-
+ 
   <section class="founders">
     <div class="founders-intro">
       <div class="section-label">The Founding Team</div>
       <h2 class="section-title">MEET THE<br><em>Co-Founders</em></h2>
-      <p>Vertical Studios ATL was founded by two industry veterans who saw the vertical format coming before the rest of the industry caught on — and spent years building the expertise to lead it. Together they've produced and directed more than 50 vertical series across multiple platforms.</p>
+      <p>Michael Sokol and Audrey Deitz founded Vertical Studios ATL after years of working independently as producer and director on some of the most-watched vertical series in the world. Together they've produced and directed more than 50 vertical series across ReelShort, DramaBox, Vigloo, and other major platforms — including titles that have broken viewership records. Vertical Studios ATL is the studio they built to bring that experience under one roof.</p>
     </div>
     <div class="founders-grid">
       <div class="founder-card">
         <div class="founder-photo">
-          <!-- SWAP: <img src="founder1-headshot.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-          <div class="founder-ph"><span>CO-FOUNDER<br>HEADSHOT</span></div>
+          <img src="Michael_Sokol_Headshot.jpeg" style="width:100%;height:100%;object-fit:cover;" alt="Michael Sokol">
         </div>
         <div class="founder-info">
-          <h3 class="founder-name">[CO-FOUNDER NAME]</h3>
+          <h3 class="founder-name">MICHAEL SOKOL</h3>
           <p class="founder-role">Co-Founder · Executive Producer</p>
-          <p class="founder-bio">Replace this with a real bio about your co-founder. Highlight their background, the platforms they've worked with, the genres they specialize in, and what drew them to vertical storytelling.</p>
+          <p class="founder-bio">Replace this with Michael's real bio. Highlight his background, the platforms he's worked with, notable titles he's produced, and what drove him to launch Vertical Studios ATL.</p>
           <p class="founder-cred">25+ Series Produced</p>
         </div>
       </div>
       <div class="founder-card">
         <div class="founder-photo">
-          <!-- SWAP: <img src="founder2-headshot.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
-          <div class="founder-ph"><span>CO-FOUNDER<br>HEADSHOT</span></div>
+          <img src="Audrey_Deitz_Headshot.jpg" style="width:100%;height:100%;object-fit:cover;" alt="Audrey Deitz">
         </div>
         <div class="founder-info">
-          <h3 class="founder-name">[CO-FOUNDER NAME]</h3>
+          <h3 class="founder-name">AUDREY DEITZ</h3>
           <p class="founder-role">Co-Founder · Director</p>
-          <p class="founder-bio">Replace this with a real bio about your co-founder. Highlight their directorial background, the range of genres they've worked in, and their specific approach to vertical-native filmmaking.</p>
+          <p class="founder-bio">Replace this with Audrey's real bio. Highlight her directorial background, the range of genres she's worked in, and her specific approach to vertical-native filmmaking.</p>
           <p class="founder-cred">25+ Series Directed</p>
         </div>
       </div>
     </div>
   </section>
-
+ 
   <footer>
     <div class="footer-top">
       <div>
@@ -215,7 +213,7 @@
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:hello@verticalstudiosatl.com">hello@verticalstudiosatl.com</a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#93fbf6fffffcd3e5f6e1e7faf0f2ffe0e7e6f7fafce0f2e7ffbdf0fcfe"><span class="__cf_email__" data-cfemail="f8909d949497b88e9d8a8c919b99948b8c8d9c91978b998c94d69b9795">[email&#160;protected]</span></a></li><li><a href="#">Atlanta, GA</a></li></ul></div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -223,13 +221,8 @@
       <div class="footer-socials"><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">LinkedIn</a><a href="#">IMDb</a></div>
     </div>
   </footer>
-
-  <script>
+ 
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const cursor=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
     let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    function anim(){cursor.style.left=mx+'px';cursor.style.top=my+'px';rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);}
-    anim();
-  </script>
-</body>
-</html>
+    document.addEventListener('mous
