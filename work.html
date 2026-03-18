@@ -25,8 +25,6 @@
     }
     html{scroll-behavior:smooth;}
     body{background:var(--sky);color:var(--ink);font-family:var(--body);font-weight:300;overflow-x:hidden;}
-    .cursor{position:fixed;width:10px;height:10px;background:var(--cobalt);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
-    .cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--cobalt);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.5;}
 
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px 56px;}
     nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(214,238,255,.97) 0%,rgba(214,238,255,0) 100%);pointer-events:none;}
@@ -45,30 +43,8 @@
     .page-hero-title em{font-family:var(--serif);font-style:italic;color:var(--cobalt);}
     .page-hero-sub{font-size:.9rem;line-height:1.75;color:var(--ink2);max-width:500px;margin-top:20px;}
 
-    /* FILTER */
-    .filter-bar{padding:0 56px 56px;display:flex;gap:4px;flex-wrap:wrap;}
-    .filter-btn{padding:10px 22px;border:1.5px solid var(--sky3);background:transparent;color:var(--ink2);font-family:var(--body);font-size:.68rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s;}
-    .filter-btn:hover{border-color:var(--cobalt);color:var(--cobalt);}
-    .filter-btn.active{background:var(--cobalt);border-color:var(--cobalt);color:var(--white);}
-
-    /* VERTICAL CARD GRID — portrait format to mirror phone screens */
-    .series-grid{padding:0 56px 110px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
-    .series-card{position:relative;overflow:hidden;background:var(--ink);border-radius:2px;aspect-ratio:9/14;transition:transform .4s;}
-    .series-card:hover{transform:translateY(-10px);}
-    .sc-img{width:100%;height:100%;background:linear-gradient(160deg,#18284a,#0a1525);display:flex;align-items:center;justify-content:center;transition:transform .55s;}
-    .series-card:hover .sc-img{transform:scale(1.04);}
-    .sc-img span{font-family:var(--display);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.1);text-align:center;padding:14px;}
-    .sc-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.97) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px 18px 18px;opacity:0;transition:opacity .3s;}
-    .series-card:hover .sc-overlay{opacity:1;}
-    /* always-visible bottom label */
-    .sc-label{position:absolute;bottom:0;left:0;right:0;padding:20px 18px 16px;background:linear-gradient(to top,rgba(10,22,40,.92) 0%,transparent 100%);}
-    .sc-tag{font-size:.56rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
-    .sc-title{font-family:var(--display);font-size:1.2rem;letter-spacing:.04em;color:var(--white);line-height:1.05;}
-    .sc-ep{font-size:.64rem;color:rgba(214,238,255,.4);margin-top:3px;}
-    .sc-year{font-size:.62rem;color:rgba(214,238,255,.3);margin-top:2px;}
-
     /* FEATURED */
-    .featured{margin:0 56px 100px;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;}
+    .featured{margin:0 56px 60px;background:var(--ink);display:grid;grid-template-columns:1fr 1fr;}
     .f-visual{aspect-ratio:9/10;overflow:hidden;}
     .f-ph{width:100%;height:100%;background:linear-gradient(160deg,#1a2a48,#091525);display:flex;align-items:center;justify-content:center;}
     .f-ph span{font-family:var(--display);font-size:.68rem;letter-spacing:.18em;color:rgba(255,255,255,.1);text-align:center;}
@@ -82,6 +58,19 @@
     .btn-primary{display:inline-block;padding:13px 32px;background:var(--cobalt);color:var(--white);font-size:.7rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .15s;}
     .btn-primary:hover{background:var(--ink2);transform:translateY(-2px);}
 
+    /* SERIES GRID */
+    .series-grid{padding:0 56px 110px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+    .series-card{position:relative;overflow:hidden;background:var(--ink);border-radius:2px;aspect-ratio:9/14;transition:transform .4s;}
+    .series-card:hover{transform:translateY(-8px);}
+    .series-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s;}
+    .series-card:hover img{transform:scale(1.04);}
+    .sc-hover{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,40,.96) 0%,rgba(10,22,40,.2) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:space-between;padding:20px 18px;opacity:0;transition:opacity .3s;}
+    .series-card:hover .sc-hover{opacity:1;}
+    .sc-credit{font-family:var(--serif);font-style:italic;font-size:.78rem;color:var(--gold);letter-spacing:.03em;}
+    .sc-bottom{display:flex;flex-direction:column;gap:5px;}
+    .sc-tag{font-size:.56rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+    .sc-title{font-family:var(--display);font-size:1.2rem;letter-spacing:.04em;color:var(--white);line-height:1.05;}
+
     footer{background:var(--ink);padding:70px 56px 44px;}
     .footer-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:52px;}
     .footer-logo .flv{font-family:var(--display);font-size:2rem;color:var(--gold);display:block;}
@@ -94,14 +83,12 @@
     .footer-col a:hover{color:var(--white);}
     .footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:24px;display:flex;justify-content:space-between;align-items:center;}
     .footer-copy{font-size:.67rem;color:rgba(214,238,255,.2);letter-spacing:.04em;}
-    .footer-socials{display:flex;gap:20px;}
-    .footer-socials a{font-size:.63rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(214,238,255,.28);text-decoration:none;transition:color .2s;}
-    .footer-socials a:hover{color:var(--gold);}
 
     @media(max-width:960px){
       nav{padding:22px 28px;}
-      .page-hero,.featured{padding:80px 28px;}
-      .featured{margin:0 28px 80px;grid-template-columns:1fr;}
+      .page-hero{padding:120px 28px 60px;}
+      .featured{margin:0 28px 40px;grid-template-columns:1fr;}
+      .f-visual{aspect-ratio:16/9;}
       .filter-bar{padding:0 28px 40px;}
       .series-grid{padding:0 28px 80px;grid-template-columns:repeat(2,1fr);}
       .footer-top{flex-direction:column;gap:36px;}
@@ -110,6 +97,7 @@
   </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html" class="nav-logo">
       <span class="lv">V/</span>
@@ -129,60 +117,9 @@
     <p class="page-hero-sub">A selection of vertical micro-drama series produced and directed by our founders prior to launching Vertical Studios ATL — the body of work that drove them to build Atlanta's first dedicated vertical production studio.</p>
   </div>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" onclick="setFilter(this,'all')">All Series</button>
-    <button class="filter-btn" onclick="setFilter(this,'drama')">Drama</button>
-    <button class="filter-btn" onclick="setFilter(this,'thriller')">Thriller</button>
-    <button class="filter-btn" onclick="setFilter(this,'romance')">Romance</button>
-  </div>
-
-  <div class="series-grid">
-    <div class="series-card" data-cat="romance">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Heiress%20Crash%20Lands%20Website%20Poster.png" alt="Heiress Crash Lands on Her Husband">
-      <div class="sc-label"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">HEIRESS CRASH LANDS ON HER HUSBAND</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-    <div class="series-card" data-cat="drama">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Divorce%20Lawyer%20Website%20Poster.jpg" alt="Falling for My Divorce Lawyer">
-      <div class="sc-label"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">FALLING FOR MY DIVORCE LAWYER</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-    <div class="series-card" data-cat="romance">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Callboy%20Website%20Poster.png" alt="The Call Boy I Met in Paris">
-      <div class="sc-label"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">THE CALL BOY I MET IN PARIS</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-    <div class="series-card" data-cat="thriller">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Softly%20Ruined%20By%20You%20Website%20Poster.png" alt="Softly Ruined By You">
-      <div class="sc-label"><p class="sc-tag">Thriller · DramaBox</p><h3 class="sc-title">SOFTLY RUINED BY YOU</h3></div>
-      <div class="sc-overlay"><p class="sc-year">DramaBox</p></div>
-    </div>
-    <div class="series-card" data-cat="drama">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Reckoning%20Takes%20Flight%20Website%20Poster.png" alt="The Reckoning Takes Flight">
-      <div class="sc-label"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">THE RECKONING TAKES FLIGHT</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-    <div class="series-card" data-cat="romance">
-      <img style="width:100%;height:100%;object-fit:cover;" src="I%20slept%20With%20My%20Dad%27s%20Best%20Friend%20Website%20Poster.png" alt="I Slept with My Dad's Best Friend">
-      <div class="sc-label"><p class="sc-tag">Romance · Vigloo</p><h3 class="sc-title">I SLEPT WITH MY DAD'S BEST FRIEND</h3></div>
-      <div class="sc-overlay"><p class="sc-year">Vigloo</p></div>
-    </div>
-    <div class="series-card" data-cat="drama">
-      <img style="width:100%;height:100%;object-fit:cover;" src="Money%20Guns%20Website%20Poster.png" alt="Money, Guns, and a Merry Christmas">
-      <div class="sc-label"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">MONEY, GUNS, AND A MERRY CHRISTMAS</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-    <div class="series-card" data-cat="romance">
-      <img style="width:100%;height:100%;object-fit:cover;" src="You%20Drive%20me%20Crazy%20Website%20Poster.jpg" alt="You Drive Me Crazy">
-      <div class="sc-label"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">YOU DRIVE ME CRAZY</h3></div>
-      <div class="sc-overlay"><p class="sc-year">ReelShort Exclusive</p></div>
-    </div>
-  </div>
-
   <!-- FEATURED SERIES -->
   <div class="featured">
     <div class="f-visual">
-      <!-- SWAP: <img src="featured-still.jpg" style="width:100%;height:100%;object-fit:cover;"> -->
       <div class="f-ph" style="padding:0;overflow:hidden;"><img src="Homeless%20Featured%20Series%20Photo.png" style="width:100%;height:100%;object-fit:cover;" alt="Found a Homeless Billionaire Husband for Christmas"></div>
     </div>
     <div class="f-info">
@@ -198,6 +135,65 @@
     </div>
   </div>
 
+  <div class="series-grid">
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Heiress%20Crash%20Lands%20Website%20Poster.png" alt="Heiress Crash Lands on Her Husband">
+      <div class="sc-hover">
+        <p class="sc-credit">Produced by Michael Sokol</p>
+        <div class="sc-bottom"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">HEIRESS CRASH LANDS ON HER HUSBAND</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Divorce%20Lawyer%20Website%20Poster.jpg" alt="Falling for My Divorce Lawyer">
+      <div class="sc-hover">
+        <p class="sc-credit">Directed by Audrey Deitz</p>
+        <div class="sc-bottom"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">FALLING FOR MY DIVORCE LAWYER</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Callboy%20Website%20Poster.png" alt="The Call Boy I Met in Paris">
+      <div class="sc-hover">
+        <p class="sc-credit">Produced by Michael Sokol</p>
+        <div class="sc-bottom"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">THE CALL BOY I MET IN PARIS</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Softly%20Ruined%20By%20You%20Website%20Poster.png" alt="Softly Ruined By You">
+      <div class="sc-hover">
+        <p class="sc-credit">Directed by Audrey Deitz</p>
+        <div class="sc-bottom"><p class="sc-tag">Thriller · DramaBox</p><h3 class="sc-title">SOFTLY RUINED BY YOU</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Reckoning%20Takes%20Flight%20Website%20Poster.png" alt="The Reckoning Takes Flight">
+      <div class="sc-hover">
+        <p class="sc-credit">Produced by Michael Sokol</p>
+        <div class="sc-bottom"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">THE RECKONING TAKES FLIGHT</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="I%20slept%20With%20My%20Dad%27s%20Best%20Friend%20Website%20Poster.png" alt="I Slept with My Dad's Best Friend">
+      <div class="sc-hover">
+        <p class="sc-credit">Directed by Audrey Deitz</p>
+        <div class="sc-bottom"><p class="sc-tag">Romance · Vigloo</p><h3 class="sc-title">I SLEPT WITH MY DAD'S BEST FRIEND</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="Money%20Guns%20Website%20Poster.png" alt="Money, Guns, and a Merry Christmas">
+      <div class="sc-hover">
+        <p class="sc-credit">Produced by Michael Sokol</p>
+        <div class="sc-bottom"><p class="sc-tag">Drama · ReelShort</p><h3 class="sc-title">MONEY, GUNS, AND A MERRY CHRISTMAS</h3></div>
+      </div>
+    </div>
+    <div class="series-card">
+      <img style="width:100%;height:100%;object-fit:cover;" src="You%20Drive%20me%20Crazy%20Website%20Poster.jpg" alt="You Drive Me Crazy">
+      <div class="sc-hover">
+        <p class="sc-credit">Produced by Audrey Deitz &amp; Michael Sokol</p>
+        <div class="sc-bottom"><p class="sc-tag">Romance · ReelShort</p><h3 class="sc-title">YOU DRIVE ME CRAZY</h3></div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-top">
       <div>
@@ -206,13 +202,14 @@
       </div>
       <div class="footer-links">
         <div class="footer-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="work.html">Our Work</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-        
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Vertical Studios ATL. All rights reserved.</p>
-      
+      <p class="footer-copy">© 2026 Vertical Studios ATL. All rights reserved.</p>
     </div>
   </footer>
 
-  <
+  <script>
+  </script>
+</body>
+</html>
